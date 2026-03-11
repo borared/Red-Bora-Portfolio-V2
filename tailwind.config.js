@@ -1,23 +1,19 @@
 /** @type {import('tailwindcss').Config} */
+// tailwind.config.js
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
   theme: {
     extend: {
       keyframes: {
         liquid: {
           "0%": { transform: "scale(1)" },
-          "40%": { transform: "scale(1.15,0.9)" },
-          "60%": { transform: "scale(0.95,1.1)" },
-          "100%": { transform: "scale(1.05)" },
+          "30%": { transform: "scale(1.2, 0.8)" },
+          "50%": { transform: "scale(0.85, 1.15)" },
+          "100%": { transform: "scale(1)" },
         },
       },
       animation: {
-        liquid: "liquid 0.45s ease-out forwards",
+        liquid: "liquid 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
       },
     },
   },
-  plugins: [],
-};
+}
