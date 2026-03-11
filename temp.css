@@ -1,0 +1,6 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/index.css");import { updateStyle as __vite__updateStyle, removeStyle as __vite__removeStyle } from "/@vite/client"
+const __vite__id = "C:/Users/U-ser/OneDrive/Desktop/Grape/PortfolioV2/src/index.css"
+const __vite__css = "/*! tailwindcss v4.2.1 | MIT License | https://tailwindcss.com */\n.absolute {\n  position: absolute;\n}\n.relative {\n  position: relative;\n}\n.block {\n  display: block;\n}\n.flex {\n  display: flex;\n}\n.h-\\[3px\\] {\n  height: 3px;\n}\n.flex-col {\n  flex-direction: column;\n}\n.items-center {\n  align-items: center;\n}\n.justify-between {\n  justify-content: space-between;\n}\n.justify-center {\n  justify-content: center;\n}\n.rounded-full {\n  border-radius: calc(infinity * 1px);\n}\n.bg-\\[\\#efefef\\] {\n  background-color: #efefef;\n}\n"
+__vite__updateStyle(__vite__id, __vite__css)
+import.meta.hot.accept()
+import.meta.hot.prune(() => __vite__removeStyle(__vite__id))

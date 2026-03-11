@@ -23,8 +23,8 @@ const Navbar = () => {
             <span className="block w-7 h-[3px] bg-white rounded"></span>
           </div>
         </button>
-
       </div>
+
 
     </nav>
   );
