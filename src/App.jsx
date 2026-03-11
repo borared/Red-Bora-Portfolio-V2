@@ -1,18 +1,24 @@
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/global/Navbar";
+import Hero from "./components/Hero";
 
 function App() {
   return (
-    <>
-      <Navbar />
-      <section className="min-h-screen flex items-center justify-center">
-        <img 
-          src="https://res.cloudinary.com/dicrvjstp/image/upload/v1773250810/rbr_lfofek.png" 
-          alt="RBR - Software Engineer"
-          className="max-w-4xl w-full h-auto"
-        />
-      </section>
-    </>
-  )
+    <BrowserRouter>
+      {/* Navbar stays outside Routes so it shows up on every page */}
+      <Navbar /> 
+      
+      <Routes>
+        {/* You must wrap your component in a Route tag */}
+        <Route path="/" element={<Hero />} />
+        
+        {/* Example of another route */}
+        {/* <Route path="/about" element={<About />} /> */}
+      </Routes>
+        <section className="min-h-screen" />
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
