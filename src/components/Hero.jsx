@@ -1,4 +1,5 @@
 import React from "react";
+import Magnetic from "./global/Magnetic";
 
 export default function Hero() {
   return (
@@ -14,12 +15,20 @@ export default function Hero() {
       </div>
 
       {/* left/right overlay text */}
-      <h1 className="absolute left-1/5 top-50 transform -translate-y-1/2 text-2xl md:text-3xl whitespace-nowrap">
-        A Junior
-      </h1>
-      <h1 className="absolute right-1/5 top-50 transform -translate-y-1/2 text-2xl md:text-3xl whitespace-nowrap text-right">
-        Software Engineer
-      </h1>
+      <div className="absolute left-1/5 top-50 transform -translate-y-1/2">
+        <Magnetic strength={2}>
+          <h1 className="text-2xl md:text-3xl whitespace-nowrap cursor-pointer">
+            A Junior
+          </h1>
+        </Magnetic>
+      </div>
+      <div className="absolute right-1/5 top-50 transform -translate-y-1/2">
+        <Magnetic strength={2}>
+          <h1 className="text-2xl md:text-3xl whitespace-nowrap text-right cursor-pointer">
+            Software Engineer
+          </h1>
+        </Magnetic>
+      </div>
     </div>
   );
 }
