@@ -32,8 +32,8 @@ const Navbar = () => {
         RBR
       </a>
 
-      {/* Hamburger Section */}
-      <div className="relative flex items-center justify-center">
+      {/* Hamburger Section (fixed button + menu) */}
+      <div className="fixed top-6 right-10 z-50 flex items-center justify-center">
         {/* Wrapper just for positioning; Magnetic only affects the button */}
         <div className="relative select-none">
           {/* Hamburger + dot with Magnetic */}
