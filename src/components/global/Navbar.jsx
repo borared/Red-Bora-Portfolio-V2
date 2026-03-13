@@ -4,7 +4,7 @@ import { Home, FolderKanban, User, Mail } from "lucide-react";
 import Magnetic from "./Magnetic";
 
 const menuItems = [
-  { id: "home", label: "Home", Icon: Home, href: "#home" },
+  { id: "home", label: "Home", Icon: Home, href: "/" },
   { id: "projects", label: "Projects", Icon: FolderKanban, href: "#projects" },
   { id: "about", label: "About", Icon: User, href: "#about" },
   { id: "contact", label: "Contact", Icon: Mail, href: "#contact" },
