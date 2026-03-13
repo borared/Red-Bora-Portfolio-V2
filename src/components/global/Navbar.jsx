@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { Home, FolderKanban, User, Mail } from "lucide-react";
 import Magnetic from "./Magnetic";
 
@@ -65,58 +65,58 @@ const Navbar = () => {
           <AnimatePresence>
             {open && (
               <motion.div
-                  initial="closed"
-                  animate="open"
-                  exit="closed"
-                  variants={{
-                    open: {
-                      transition: {
-                        staggerChildren: 0.08,
-                        delayChildren: 0.05,
-                      },
+                initial="closed"
+                animate="open"
+                exit="closed"
+                variants={{
+                  open: {
+                    transition: {
+                      staggerChildren: 0.08,
+                      delayChildren: 0.05,
                     },
-                    closed: {
-                      transition: {
-                        staggerChildren: 0.05,
-                        staggerDirection: -1,
-                      },
+                  },
+                  closed: {
+                    transition: {
+                      staggerChildren: 0.05,
+                      staggerDirection: -1,
                     },
-                  }}
-                  className="absolute right-0 top-full mt-4 flex flex-col items-center gap-4 z-50 pointer-events-auto"
-                >
-                  {menuItems.map(({ id, label, Icon, href }) => (
-                    <div key={id} className="w-40 flex justify-end">
-                      <motion.a
-                        href={href}
-                        onClick={handleItemClick}
-                        variants={{
-                          open: {
-                            opacity: 1,
-                            y: 0,
-                            scale: 1,
-                          },
-                          closed: {
-                            opacity: 0,
-                            y: -10,
-                            scale: 0.5,
-                          },
-                        }}
-                        transition={{
-                          type: "spring",
-                          stiffness: 260,
-                          damping: 20,
-                        }}
-                        className="group w-11 h-11 bg-black rounded-full flex items-center justify-end text-white shadow-lg overflow-hidden transition-all duration-300 ease-out hover:w-40"
-                        aria-label={label}
-                      >
-                        <span className="ml-4 mr-2 text-sm opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-out whitespace-nowrap">
-                          {label}
-                        </span>
-                        <Icon className="w-4 h-4 mr-3 flex-shrink-0" />
-                      </motion.a>
-                    </div>
-                  ))}
-                </motion.div>
+                  },
+                }}
+                className="absolute right-0 top-full mt-4 flex flex-col items-center gap-4 z-50 pointer-events-auto"
+              >
+                {menuItems.map(({ id, label, Icon, href }) => (
+                  <div key={id} className="w-40 flex justify-end">
+                    <motion.a
+                      href={href}
+                      onClick={handleItemClick}
+                      variants={{
+                        open: {
+                          opacity: 1,
+                          y: 0,
+                          scale: 1,
+                        },
+                        closed: {
+                          opacity: 0,
+                          y: -10,
+                          scale: 0.5,
+                        },
+                      }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 260,
+                        damping: 20,
+                      }}
+                      className="group w-11 h-11 bg-black rounded-full flex items-center justify-end text-white shadow-lg overflow-hidden transition-all duration-300 ease-out hover:w-40"
+                      aria-label={label}
+                    >
+                      <span className="ml-4 mr-2 text-sm opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-out whitespace-nowrap">
+                        {label}
+                      </span>
+                      <Icon className="w-4 h-4 mr-3 flex-shrink-0" />
+                    </motion.a>
+                  </div>
+                ))}
+              </motion.div>
             )}
           </AnimatePresence>
         </div>
