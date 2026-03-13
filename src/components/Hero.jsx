@@ -40,7 +40,7 @@ export default function Hero() {
   return (
     <>
       {/* container is relative so we can absolutely position text over the image */}
-      <div className="relative overflow-x-hidden flex justify-center items-center w-full min-h-[100vh] p-4">
+      <div className="relative overflow-x-hidden flex justify-center items-center w-full min-h-[100vh] p-4 mt-13">
         {/* Scrolling background text */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 flex items-center mt-55">
           <div
