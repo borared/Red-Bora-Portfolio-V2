@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/global/Navbar";
 import Hero from "./components/Hero";
+import LandingPage from "./page/landingpage";
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
       
       <Routes>
         {/* You must wrap your component in a Route tag */}
-        <Route path="/" element={<Hero />} />
+        <Route path="/" element={<LandingPage />} />
         
         {/* Example of another route */}
         {/* <Route path="/about" element={<About />} /> */}
