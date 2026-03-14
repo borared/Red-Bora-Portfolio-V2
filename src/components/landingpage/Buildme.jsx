@@ -4,7 +4,7 @@ import Magnetic from "../global/Magnetic";
 
 export default function Buildme() {
   return (
-    <section className="relative z-10 bg-black rounded-t-[150px] mt-[120px] min-h-[150vh]">
+    <section className="relative z-10 bg-black rounded-t-[150px] mt-[120px] min-h-[150vh] overflow-hidden">
       <motion.div
         className="max-w-6xl mx-auto px-6 pt-[600px] pb-24 md:px-12 lg:px-24 flex flex-col items-center justify-center text-center"
         initial={{ opacity: 0, y: 60 }}
