@@ -1,5 +1,5 @@
-import React, { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import React, { useRef, useState } from "react";
 
 const projects = [
   {
@@ -8,7 +8,6 @@ const projects = [
     tagline: "A driver's guide to the ship wrecks around Ireland",
     image:
       "https://res.cloudinary.com/dicrvjstp/image/upload/v1773458411/IrishWreckk_yeng2q.jpg",
-    link: "#",
   },
   {
     id: 2,
@@ -16,7 +15,6 @@ const projects = [
     tagline: "Welcome to Kingdom of Wonder — Travel with happiness",
     image:
       "https://res.cloudinary.com/dicrvjstp/image/upload/v1773458410/Cambodia_iaqr84.jpg",
-    link: "#",
   },
   {
     id: 3,
@@ -24,7 +22,6 @@ const projects = [
     tagline: "Get your hunger menu",
     image:
       "https://res.cloudinary.com/dicrvjstp/image/upload/v1773458411/Cadt_Hang_riubcd_rkhalk.jpg",
-    link: "#",
   },
   {
     id: 4,
@@ -32,12 +29,12 @@ const projects = [
     tagline: "Enjoy again and again and again",
     image:
       "https://res.cloudinary.com/dicrvjstp/image/upload/v1773458410/Coca_UI122_b7g4jz.jpg",
-    link: "#",
   },
 ];
 
 export default function DesignWork() {
   const sectionRef = useRef(null);
+  const [activeProject, setActiveProject] = useState(null);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -126,17 +123,15 @@ export default function DesignWork() {
                       {project.tagline}
                     </p>
 
-                    <span className="inline-flex items-center gap-2 rounded-full bg-white text-black px-4 py-2 text-sm font-medium w-fit">
-                      View
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        className="h-4 w-4"
-                      >
-                        <path d="M5 12h14m-7-7l7 7-7 7" />
-                      </svg>
-                    </span>
+                    <button
+                        onClick={(e) => {
+                        e.preventDefault();
+                        setActiveProject(project);
+                     }}
+                        className="hover:cursor-pointer inline-flex items-center gap-2 rounded-full bg-white text-black px-4 py-2 text-sm font-medium w-fit"
+                     >
+                        View
+                    </button>
                   </div>
                 </div>
               </a>
@@ -151,6 +146,29 @@ export default function DesignWork() {
           100% { transform: translateX(-50%); }
         }
       `}</style>
+
+<AnimatePresence>
+  {activeProject && (
+    <motion.div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      onClick={() => setActiveProject(null)}
+    >
+      <motion.img
+        src={activeProject.image}
+        alt={activeProject.title}
+        className="max-w-[90vw] max-h-[90vh] rounded-xl shadow-2xl"
+        initial={{ scale: 0.85, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.9, opacity: 0 }}
+        transition={{ duration: 0.35, ease: "easeOut" }}
+        onClick={(e) => e.stopPropagation()}
+      />
+    </motion.div>
+  )}
+</AnimatePresence>
     </section>
   );
 }
