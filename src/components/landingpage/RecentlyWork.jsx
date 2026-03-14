@@ -10,7 +10,7 @@ export default function RecentlyWork() {
           className="text-center text-3xl md:text-4xl font-black tracking-tight mb-12"
           style={{ fontFamily: '"Stretch Pro", sans-serif' }}
         >
-          Recently Work
+          RECENTLY WORK
         </h2>
 
         {/* Content layout */}
