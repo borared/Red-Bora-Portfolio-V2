@@ -1,10 +1,9 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/global/Navbar";
-import Hero from "./components/landingpage/Hero";
-import LandingPage from "./page/landingpage";
+import LandingPage from "./page/Landingpage";
 import DraggableGithub from "./components/global/DraggableGithub";
-
+import Footer from "./components/global/Footer";
 function App() {
   return (
     <BrowserRouter>
@@ -19,6 +18,7 @@ function App() {
         {/* Example of another route */}
         {/* <Route path="/about" element={<About />} /> */}
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }
