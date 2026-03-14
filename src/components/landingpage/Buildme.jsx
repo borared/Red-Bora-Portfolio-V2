@@ -7,7 +7,7 @@ export default function Buildme() {
       <div className="max-w-6xl mx-auto px-6 py-24 md:px-12 lg:px-24 flex flex-col items-center justify-center text-center">
         <h2
           className="text-white text-3xl md:text-4xl font-black tracking-tight mb-8"
-          style={{ fontFamily: '"Stretch Pro", sans-serif' }}
+          style={{ fontFamily: '"Mooli", sans-serif' }}
         >
           Wanna Build Your Project?
         </h2>
