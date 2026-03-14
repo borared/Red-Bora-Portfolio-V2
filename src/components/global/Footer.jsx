@@ -19,7 +19,7 @@ export default function Footer() {
 
           <div className="relative z-100 w-[300px] h-[300px] -bottom-50">
             <Lottie
-              animationData={{}}  // Replace with your Lottie JSON data
+              animationData={{}} // Replace with your Lottie JSON data
               loop
               autoplay
               className="-mt-58 -ml-75 z-0 w-250 flex justify-start"
