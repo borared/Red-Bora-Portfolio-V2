@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 export default function RecentlyWork() {
   return (
@@ -17,7 +18,10 @@ export default function RecentlyWork() {
           {/* Left: text content */}
           <div className="w-full md:w-1/2 space-y-5">
             <div className="space-y-1">
-              <h3 className="text-2xl md:text-5xl font-bold text-red-500">
+              <h3
+                className="text-2xl md:text-5xl font-extrabold text-red-500"
+                style={{ fontFamily: '"Mooli", sans-serif' }}
+              >
                 NaekWatch
               </h3>
               <p className="text-sm md:text-xl font-medium text-neutral-500">
@@ -66,15 +70,21 @@ export default function RecentlyWork() {
           </div>
 
           {/* Right: image */}
-          <div className="w-full md:w-[70%] flex justify-center">
+          <motion.div
+            className="w-full md:w-[70%] flex justify-center"
+            initial={{ x: 150, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            viewport={{ once: true }}
+          >
             <div className="w-full max-w-2xl overflow-hidden">
               <img
                 src="https://res.cloudinary.com/dicrvjstp/image/upload/v1773420947/NaekMac_xh6jgu.jpg"
                 alt="NaekWatch mockup"
-                className="w-full h-auto block "
+                className="w-full h-auto block"
               />
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
