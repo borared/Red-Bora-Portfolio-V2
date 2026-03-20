@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { motion, useMotionValue } from "framer-motion";
 import { Github } from "lucide-react";
 
-const STORAGE_KEY = "floating_github_pos_v1";
+const STORAGE_KEY = "floating_github_pos_v2";
 const HINT_KEY = "floating_github_hint_dismissed_v1";
 
 function clamp(n, min, max) {
@@ -12,7 +12,7 @@ function clamp(n, min, max) {
 export default function DraggableGithub({
   href = "https://github.com/borared",
   size = 56,
-  margin = 24,
+  margin = 65,
 }) {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -89,7 +89,7 @@ export default function DraggableGithub({
   };
 
   return (
-    <div className="fixed inset-0 z-50 pointer-events-none">
+    <div className="fixed inset-0 z-100 pointer-events-none">
       {showHint && (
         <motion.div
           className="pointer-events-none fixed"
