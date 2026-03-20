@@ -3,6 +3,7 @@ import Hero from "../components/landingpage/Hero";
 import Greeting from "../components/landingpage/Greeting";
 import RecentlyWork from "../components/landingpage/RecentlyWork";
 import DesignWork from "../components/landingpage/DesignWork";
+import AllProject from "../components/landingpage/AllProject";
 import Buildme from "../components/landingpage/Buildme";
 import MoreDetailAbout from "../components/landingpage/MoreDetailAbout";
 export default function LandingPage() {
@@ -12,6 +13,7 @@ export default function LandingPage() {
       <Greeting />
       <RecentlyWork />
       <DesignWork />
+      <AllProject />
       <Buildme />
       <MoreDetailAbout />
     </div>
