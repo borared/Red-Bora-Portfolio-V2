@@ -17,7 +17,7 @@ export default function Footer() {
         <div className="relative w-[360px] h-[280px] flex items-end justify-end">
           <div className="absolute -right-60 -bottom-50 w-[500px] h-[500px] bg-white rounded-full" />
 
-          <div className="relative z-100 w-[300px] h-[300px] -bottom-50">
+          <div className="relative z-80 w-[300px] h-[300px] -bottom-50">
             <DotLottieReact
               src="https://lottie.host/4db68bbd-31f6-4cd8-84eb-189de081159a/IGmMCqhzpt.lottie"
               loop
