@@ -113,7 +113,7 @@ function ProjectCard({ project }) {
         <h3 className="text-white font-bold text-base leading-tight mb-0.5">
           {project.title}
         </h3>
-        <p className="text-white/70 text-xs leading-snug line-clamp-1">
+        <p className="text-white text-xs leading-snug line-clamp-1">
           {project.tagline}
         </p>
 
