@@ -20,7 +20,7 @@ const schoolProjects = [
     tagline: "Make it easy for Trip Guidance",
     image:
       "https://res.cloudinary.com/dicrvjstp/image/upload/v1774027670/Screenshot_2026-03-21_002740_qmvzh9.png",
-    tags: ["Next.js", "TypeScript", "Tailwind"],
+    tags: ["HTML", "CSS", "JavaScript"],
     link: "#",
   },
   {
@@ -50,7 +50,7 @@ const personalProjects = [
     tagline: "My personal portfolio — designed from scratch",
     image:
       "https://res.cloudinary.com/dicrvjstp/image/upload/v1774028066/Screenshot_2026-03-21_003322_tz1sbz.png",
-    tags: ["React", "Framer Motion", "Vite"],
+    tags: ["React", "Vite", "JavaScript"],
     link: "#",
   },
   {
@@ -59,7 +59,7 @@ const personalProjects = [
     tagline: "A freelance company site",
     image:
       "https://res.cloudinary.com/dicrvjstp/image/upload/v1774028194/Screenshot_2026-03-21_003624_hz7eu9.png",
-    tags: ["HTML", "CSS", "JavaScript"],
+    tags: ["React", "Vite", "JavaScript"],
     link: "#",
   },
   {
@@ -68,7 +68,7 @@ const personalProjects = [
     tagline: "Freelance at Vachana Dental Clinic",
     image:
       "https://res.cloudinary.com/dicrvjstp/image/upload/v1774028656/Screenshot_2026-03-21_004403_a5slxk.png",
-    tags: ["Figma", "UI Design"],
+    tags: ["PhotoShop", "UI Design"],
     link: "#",
   },
 ];
