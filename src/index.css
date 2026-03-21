@@ -14,3 +14,11 @@
   font-weight: 400;
   font-style: normal;
 }
+
+/* Hide native cursor on mouse devices — custom cursor takes over */
+@media (pointer: fine) {
+  *, *::before, *::after {
+    cursor: none !important;
+  }
+}
+
