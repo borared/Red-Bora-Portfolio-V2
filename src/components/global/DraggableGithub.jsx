@@ -89,7 +89,7 @@ export default function DraggableGithub({
   };
 
   return (
-    <div className="hidden md:block fixed inset-0 z-50 pointer-events-none">
+    <div className="hidden md:block fixed inset-0 z-100 pointer-events-none">
       {showHint && (
         <motion.div
           className="pointer-events-none fixed"
