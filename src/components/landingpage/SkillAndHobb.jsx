@@ -73,7 +73,7 @@ export default function SkillAndHobb() {
   return (
     <section 
       ref={containerRef} 
-      className="bg-white min-h-screen relative flex items-center justify-center py-24 px-6 md:px-12 xl:px-24 overflow-hidden z-10 w-full" 
+      className="overflow-hidden bg-white min-h-screen relative flex items-center justify-center py-24 px-6 md:px-12 xl:px-24 overflow-hidden z-10 w-full" 
       id="skill-and-hobb"
     >
       <motion.div 
@@ -93,7 +93,7 @@ export default function SkillAndHobb() {
           
           <div className="flex flex-col mb-16 space-y-10 lg:space-y-16 relative">
             <motion.div variants={labelVariants} className="text-[#ff3e00] text-xs font-mono uppercase font-bold tracking-[0.2em]" style={{ fontFamily: "'Space Mono', monospace" }}>
-              / WHO AM I / P. 003
+              / WHO AM I / RED BORA
             </motion.div>
             
             <motion.div variants={labelVariants} className="text-[#ff3e00] text-xs font-mono uppercase font-bold tracking-[0.2em]" style={{ fontFamily: "'Space Mono', monospace" }}>
