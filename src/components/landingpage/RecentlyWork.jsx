@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function RecentlyWork() {
   return (
-    <section className="bg-white px-6 py-16 md:px-12 lg:px-24">
+    <section className="overflow-hidden bg-white px-6 py-16 md:px-12 lg:px-24">
       <div className="max-w-6xl mx-auto">
         {/* Section heading */}
         <h2
