@@ -274,7 +274,7 @@ export default function AllProject() {
               >
                 {label}
               </h3>
-            </div>
+            </div>  
 
             <ProjectCarousel projects={data} />
           </motion.div>
