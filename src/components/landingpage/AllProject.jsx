@@ -25,20 +25,20 @@ const schoolProjects = [
   },
   {
     id: 3,
-    title: "Survivor Sorcerer",
-    tagline: "The Mesh Escape — 3D Unity Game",
+    title: "N/A",
+    tagline: "N/A",
     image:
-      "https://res.cloudinary.com/dicrvjstp/image/upload/v1773458411/Cadt_Hang_riubcd_rkhalk.jpg",
-    tags: ["Unity", "C#", "3D"],
+      "https://res.cloudinary.com/dicrvjstp/image/upload/v1773494163/Screenshot_2026-03-14_201443_rwhkos.png",
+    tags: ["N/A", "N/A", "N/A"],
     link: "#",
   },
   {
     id: 4,
-    title: "CADT Restaurant",
-    tagline: "Get your hunger menu — campus dining app",
+    title: "N/A",
+    tagline: "N/A",
     image:
-      "https://res.cloudinary.com/dicrvjstp/image/upload/v1773458410/Coca_UI122_b7g4jz.jpg",
-    tags: ["Flutter", "Firebase"],
+      "https://res.cloudinary.com/dicrvjstp/image/upload/v1773494163/Screenshot_2026-03-14_201443_rwhkos.png",
+    tags: ["N/A", "N/A"],
     link: "#",
   },
 ];
@@ -69,6 +69,15 @@ const personalProjects = [
     image:
       "https://res.cloudinary.com/dicrvjstp/image/upload/v1774028656/Screenshot_2026-03-21_004403_a5slxk.png",
     tags: ["PhotoShop", "UI Design"],
+    link: "#",
+  },
+  {
+    id: 4,
+    title: "N/A",
+    tagline: "N/A",
+    image:
+      "https://res.cloudinary.com/dicrvjstp/image/upload/v1773494163/Screenshot_2026-03-14_201443_rwhkos.png",
+    tags: ["N/A", "N/A"],
     link: "#",
   },
 ];
@@ -221,7 +230,7 @@ const categories = [
 
 export default function AllProject() {
   return (
-    <section className="bg-white py-20 px-6 md:px-10 lg:px-16">
+    <section id="projects" className="bg-white py-20 px-6 md:px-10 lg:px-16">
       {/* Section header */}
       <div className="max-w-3xl mx-auto text-center mb-16">
         <motion.h2
@@ -232,7 +241,7 @@ export default function AllProject() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          MY PROJECT
+          MY PROOJECT
         </motion.h2>
         <motion.p
           className="text-neutral-500 text-base md:text-lg leading-relaxed"
