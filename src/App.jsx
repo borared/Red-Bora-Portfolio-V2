@@ -3,11 +3,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/global/Navbar";
 import LandingPage from "./page/Landingpage";
 import DraggableGithub from "./components/global/DraggableGithub";
+import CustomCursor from "./components/global/CustomCursor";
 import Footer from "./components/global/Footer";
 function App() {
   return (
     <BrowserRouter>
       {/* Navbar stays outside Routes so it shows up on every page */}
+      <CustomCursor />
       <Navbar />
       <DraggableGithub />
 
