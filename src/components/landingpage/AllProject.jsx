@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
+import { ChevronLeft, ChevronRight, ExternalLink, GitBranch } from "lucide-react";
 
 // ── Data ────────────────────────────────────────────────────────────────────
 
@@ -89,7 +89,7 @@ function ProjectCard({ project }) {
 
   return (
     <motion.div
-      className="relative flex-shrink-0 w-[300px] md:w-[340px] h-[220px] rounded-2xl overflow-hidden shadow-md cursor-pointer group"
+      className="relative flex flex-col flex-shrink-0 w-[300px] md:w-[350px] min-h-[420px] rounded-2xl overflow-hidden border border-neutral-200 shadow-sm cursor-pointer group bg-[#fdfcf9]"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -97,67 +97,65 @@ function ProjectCard({ project }) {
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
     >
-      {/* Image */}
-      <motion.img
-        src={project.image}
-        alt={project.title}
-        className="absolute inset-0 w-full h-full object-cover"
-        animate={{ scale: hovered ? 1.06 : 1 }}
-        transition={{ duration: 0.45, ease: "easeOut" }}
-      />
+      {/* Top Image area */}
+      <div className="h-[200px] w-full bg-blue-100/50 overflow-hidden relative border-b border-neutral-100">
+        <motion.img
+          src={project.image}
+          alt={project.title}
+          className="w-full h-full object-cover"
+          animate={{ scale: hovered ? 1.05 : 1 }}
+          transition={{ duration: 0.45, ease: "easeOut" }}
+        />
+      </div>
 
-      {/* Gradient overlay — always visible at bottom */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-
-      {/* Hover dark overlay */}
-      <motion.div
-        className="absolute inset-0 bg-black/30"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: hovered ? 1 : 0 }}
-        transition={{ duration: 0.3 }}
-      />
-
-      {/* Bottom text — always visible */}
-      <div className="absolute bottom-0 left-0 right-0 p-4">
-        <h3 className="text-white font-bold text-base leading-tight mb-0.5">
-          {project.title}
-        </h3>
-        <p className="text-white text-xs leading-snug line-clamp-1">
+      {/* Content area */}
+      <div className="p-6 flex flex-col flex-grow">
+        <div className="flex items-start justify-between mb-3">
+          <h3 className="text-gray-900 group-hover:text-[#4a72d4] font-bold text-[18px] leading-tight transition-colors pr-2">
+            {project.title}
+          </h3>
+          <div className={`flex-shrink-0 w-6 h-6 rounded-full border border-[#bbcefb] flex items-center justify-center transition-opacity duration-300 ${hovered ? 'opacity-100' : 'opacity-0'}`}>
+            <div className="w-1.5 h-1.5 bg-[#4a72d4] rounded-full"></div>
+          </div>
+        </div>
+        
+        <p className="text-neutral-500 text-[14px] leading-relaxed mb-6 line-clamp-3">
           {project.tagline}
         </p>
 
-        {/* Tags + link — appear on hover */}
-        <AnimatePresence>
-          {hovered && (
-            <motion.div
-              className="flex items-center gap-2 mt-2 flex-wrap"
-              initial={{ opacity: 0, y: 6 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 6 }}
-              transition={{ duration: 0.25 }}
+        {/* Tags */}
+        <div className="flex flex-wrap gap-2 mb-6 mt-auto">
+          {project.tags.map((tag) => (
+            <span
+              key={tag}
+              className="text-[11px] font-semibold bg-[#eef2fc] text-[#537AE0] rounded-full px-3 py-1"
             >
-              {project.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="text-[10px] bg-white/20 backdrop-blur-sm text-white rounded-full px-2 py-0.5 border border-white/20"
-                >
-                  {tag}
-                </span>
-              ))}
-              {project.link && project.link !== "#" && (
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="ml-auto text-white/80 hover:text-white transition-colors"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <ExternalLink className="w-4 h-4" />
-                </a>
-              )}
-            </motion.div>
-          )}
-        </AnimatePresence>
+              {tag}
+            </span>
+          ))}
+        </div>
+
+        {/* Buttons */}
+        <div className="flex gap-3 mt-auto">
+          <button
+            className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl border border-neutral-300 text-neutral-600 hover:bg-neutral-100 transition-colors text-[14px] font-semibold"
+          >
+            <GitBranch className="w-4 h-4" />
+            Code
+          </button>
+          <a
+            href={project.link !== "#" ? project.link : undefined}
+            target="_blank"
+            rel="noreferrer"
+            className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-[#537AE0] text-white hover:bg-[#4365c4] transition-colors text-[14px] font-semibold"
+            onClick={(e) => {
+              if(!project.link || project.link === "#") e.preventDefault();
+            }}
+          >
+            <ExternalLink className="w-4 h-4" />
+            Demo
+          </a>
+        </div>
       </div>
     </motion.div>
   );
@@ -210,7 +208,7 @@ function ProjectCarousel({ projects }) {
       <div
         ref={scrollRef}
         onScroll={updateScrollState}
-        className="flex gap-4 overflow-x-auto pb-3 scroll-smooth"
+        className="flex gap-6 overflow-x-auto pb-6 scroll-smooth"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
         {projects.map((project) => (
