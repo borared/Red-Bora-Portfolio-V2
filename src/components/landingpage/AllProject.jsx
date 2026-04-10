@@ -8,7 +8,7 @@ const schoolProjects = [
   {
     id: 1,
     title: "NaekWatch",
-    tagline: "Movie Streaming Online",
+    tagline: "NaekWatch is a movie streaming online, it provides service movie and series with khmer dubbing. Also NaekWatch has a task to do to earn point for redeem product.",
     image:
       "https://res.cloudinary.com/dicrvjstp/image/upload/v1774027492/Screenshot_2026-03-19_222317_wzljbh.png",
     tags: ["React", "Node.js", "MongoDB"],
@@ -17,7 +17,7 @@ const schoolProjects = [
   {
     id: 2,
     title: "TosTrip",
-    tagline: "Make it easy for Trip Guidance",
+    tagline: "TosTrip is a trip guidance exclusively dedicated to guide tourist for their trip around the world. This project showcases the elegance, performance of trip advisor while offering a seamless user experience.",
     image:
       "https://res.cloudinary.com/dicrvjstp/image/upload/v1774027670/Screenshot_2026-03-21_002740_qmvzh9.png",
     tags: ["HTML", "CSS", "JavaScript"],
@@ -26,11 +26,11 @@ const schoolProjects = [
   {
     id: 3,
     title: "Hospital Management System",
-    tagline: "Make it easy for Hospital Management",
+    tagline: "The Hospital Admin Management System is a centralized, object-oriented platform designed to streamline healthcare operations. It serves as a digital hub for administrators to oversee the essential pillars of a hospital's daily workflow.",
     image:
       "https://res.cloudinary.com/dicrvjstp/image/upload/v1775829871/Screenshot_2026-04-10_210224_jhl8t1.png",
     tags: ["Java", "OOP Concept", "Console-based"],
-    link: "#",
+    link: "https://github.com/borared/Hospital-Admin-Management-System",
   },
   {
     id: 4,
@@ -111,11 +111,11 @@ function ProjectCard({ project }) {
       {/* Content area */}
       <div className="p-6 flex flex-col flex-grow">
         <div className="flex items-start justify-between mb-3">
-          <h3 className="text-gray-900 group-hover:text-[#4a72d4] font-bold text-[18px] leading-tight transition-colors pr-2">
+          <h3 className="text-gray-900 group-hover:text-[#000000] font-bold text-[18px] leading-tight transition-colors pr-2">
             {project.title}
           </h3>
           <div className={`flex-shrink-0 w-6 h-6 rounded-full border border-[#bbcefb] flex items-center justify-center transition-opacity duration-300 ${hovered ? 'opacity-100' : 'opacity-0'}`}>
-            <div className="w-1.5 h-1.5 bg-[#4a72d4] rounded-full"></div>
+            <div className="w-1.5 h-1.5 bg-[#000000] rounded-full"></div>
           </div>
         </div>
         
@@ -137,17 +137,23 @@ function ProjectCard({ project }) {
 
         {/* Buttons */}
         <div className="flex gap-3 mt-auto">
-          <button
-            className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl border border-neutral-300 text-neutral-600 hover:bg-neutral-100 transition-colors text-[14px] font-semibold"
-          >
-            <GitBranch className="w-4 h-4" />
-            Code
-          </button>
           <a
             href={project.link !== "#" ? project.link : undefined}
             target="_blank"
             rel="noreferrer"
-            className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-[#537AE0] text-white hover:bg-[#4365c4] transition-colors text-[14px] font-semibold"
+            className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl border border-neutral-300 text-neutral-600 hover:bg-neutral-100 transition-colors text-[14px] font-semibold"
+            onClick={(e) => {
+              if(!project.link || project.link === "#") e.preventDefault();
+            }}
+          >
+            <GitBranch className="w-4 h-4" />
+            Code
+          </a>
+          <a
+            href={project.link !== "#" ? project.link : undefined}
+            target="_blank"
+            rel="noreferrer"
+            className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-[#000000] text-white hover:bg-[#4365c4] transition-colors text-[14px] font-semibold"
             onClick={(e) => {
               if(!project.link || project.link === "#") e.preventDefault();
             }}
