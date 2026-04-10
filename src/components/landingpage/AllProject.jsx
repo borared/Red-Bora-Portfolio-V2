@@ -12,7 +12,8 @@ const schoolProjects = [
     image:
       "https://res.cloudinary.com/dicrvjstp/image/upload/v1774027492/Screenshot_2026-03-19_222317_wzljbh.png",
     tags: ["React", "Node.js", "MongoDB"],
-    link: "#",
+    link: "https://github.com/borared/frontend-naek-watch",
+    demo: "https://tos-trip-trip-guidance-website.vercel.app/",
   },
   {
     id: 2,
@@ -21,7 +22,8 @@ const schoolProjects = [
     image:
       "https://res.cloudinary.com/dicrvjstp/image/upload/v1774027670/Screenshot_2026-03-21_002740_qmvzh9.png",
     tags: ["HTML", "CSS", "JavaScript"],
-    link: "#",
+    link: "https://github.com/borared/TosTrip-Trip-Guidance-Website",
+    demo: "https://tos-trip-trip-guidance-website.vercel.app/",
   },
   {
     id: 3,
@@ -31,6 +33,7 @@ const schoolProjects = [
       "https://res.cloudinary.com/dicrvjstp/image/upload/v1775829871/Screenshot_2026-04-10_210224_jhl8t1.png",
     tags: ["Java", "OOP Concept", "Console-based"],
     link: "https://github.com/borared/Hospital-Admin-Management-System",
+    demo: "https://tos-trip-trip-guidance-website.vercel.app/",
   },
   {
     id: 4,
@@ -40,6 +43,7 @@ const schoolProjects = [
       "https://res.cloudinary.com/dicrvjstp/image/upload/v1773494163/Screenshot_2026-03-14_201443_rwhkos.png",
     tags: ["N/A", "N/A"],
     link: "#",
+    demo: "https://tos-trip-trip-guidance-website.vercel.app/",
   },
 ];
 
@@ -52,6 +56,7 @@ const personalProjects = [
       "https://res.cloudinary.com/dicrvjstp/image/upload/v1774028066/Screenshot_2026-03-21_003322_tz1sbz.png",
     tags: ["React", "Vite", "JavaScript"],
     link: "#",
+    demo: "https://tos-trip-trip-guidance-website.vercel.app/",
   },
   {
     id: 2,
@@ -61,6 +66,7 @@ const personalProjects = [
       "https://res.cloudinary.com/dicrvjstp/image/upload/v1774028194/Screenshot_2026-03-21_003624_hz7eu9.png",
     tags: ["React", "Vite", "JavaScript"],
     link: "#",
+    demo: "https://tos-trip-trip-guidance-website.vercel.app/",
   },
   {
     id: 3,
@@ -70,6 +76,7 @@ const personalProjects = [
       "https://res.cloudinary.com/dicrvjstp/image/upload/v1774028656/Screenshot_2026-03-21_004403_a5slxk.png",
     tags: ["PhotoShop", "UI Design"],
     link: "#",
+    demo: "https://tos-trip-trip-guidance-website.vercel.app/",
   },
   {
     id: 4,
@@ -79,6 +86,7 @@ const personalProjects = [
       "https://res.cloudinary.com/dicrvjstp/image/upload/v1773494163/Screenshot_2026-03-14_201443_rwhkos.png",
     tags: ["N/A", "N/A"],
     link: "#",
+    demo: "https://tos-trip-trip-guidance-website.vercel.app/",
   },
 ];
 
@@ -150,12 +158,12 @@ function ProjectCard({ project }) {
             Code
           </a>
           <a
-            href={project.link !== "#" ? project.link : undefined}
+            href={project.demo !== "#" ? project.demo : undefined}
             target="_blank"
             rel="noreferrer"
             className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-[#000000] text-white hover:bg-[#4365c4] transition-colors text-[14px] font-semibold"
             onClick={(e) => {
-              if(!project.link || project.link === "#") e.preventDefault();
+              if(!project.demo || project.demo === "#") e.preventDefault();
             }}
           >
             <ExternalLink className="w-4 h-4" />
