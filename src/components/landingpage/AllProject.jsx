@@ -25,11 +25,11 @@ const schoolProjects = [
   },
   {
     id: 3,
-    title: "N/A",
-    tagline: "N/A",
+    title: "Hospital Management System",
+    tagline: "Make it easy for Hospital Management",
     image:
-      "https://res.cloudinary.com/dicrvjstp/image/upload/v1773494163/Screenshot_2026-03-14_201443_rwhkos.png",
-    tags: ["N/A", "N/A", "N/A"],
+      "https://res.cloudinary.com/dicrvjstp/image/upload/v1775829871/Screenshot_2026-04-10_210224_jhl8t1.png",
+    tags: ["Java", "OOP Concept", "Console-based"],
     link: "#",
   },
   {
