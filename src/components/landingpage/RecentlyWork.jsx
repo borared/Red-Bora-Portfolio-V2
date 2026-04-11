@@ -1,16 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const collaborators = [
-  { id: 1, name: "Red Bora", github: "https://github.com/borared", image: "https://github.com/borared.png", pos: { x: 50, y: -75 } },
-  { id: 2, name: "Sophat Panhaseth", github: "https://github.com/Panha-SeTh", image: "https://res.cloudinary.com/dicrvjstp/image/upload/v1775926232/photo_2026-04-11_23-50-17_vmo271.jpg", pos: { x: 75, y: -25 } },
-  { id: 3, name: "Sot Noreaksattya", github: "https://github.com/Lilsyaz45", image: "https://lilsyaz45.github.io/my-portfolio/image.jpg", pos: { x: 75, y: 30 } },
-  { id: 4, name: "Tep Kheng Meng Khim", github: "https://github.com/Mengkhim11", image: "https://res.cloudinary.com/dicrvjstp/image/upload/v1775925357/photo_2026-04-11_23-35-08_b5u1h1.jpg", pos: { x: 50, y: 80 } },
+  { id: 1, name: "Red Bora", github: "https://github.com/borared", image: "https://github.com/borared.png", desktopPos: { x: 50, y: -75 }, mobilePos: { x: 60, y: -90 } },
+  { id: 2, name: "Sophat Panhaseth", github: "https://github.com/Panha-SeTh", image: "https://res.cloudinary.com/dicrvjstp/image/upload/v1775926232/photo_2026-04-11_23-50-17_vmo271.jpg", desktopPos: { x: 75, y: -25 }, mobilePos: { x: 60, y: -30 } },
+  { id: 3, name: "Sot Noreaksattya", github: "https://github.com/Lilsyaz45", image: "https://lilsyaz45.github.io/my-portfolio/image.jpg", desktopPos: { x: 75, y: 30 }, mobilePos: { x: 60, y: 30 } },
+  { id: 4, name: "Tep Kheng Meng Khim", github: "https://github.com/Mengkhim11", image: "https://res.cloudinary.com/dicrvjstp/image/upload/v1775925357/photo_2026-04-11_23-35-08_b5u1h1.jpg", desktopPos: { x: 50, y: 80 }, mobilePos: { x: 60, y: 90 } },
 ];
 
 export default function RecentlyWork() {
   const [showCollaborators, setShowCollaborators] = useState(false);
   const [hoveredCollab, setHoveredCollab] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   return (
     <section className="overflow-hidden bg-white px-6 py-16 md:px-12 lg:px-24">
       <div className="max-w-6xl mx-auto">
@@ -94,8 +102,8 @@ export default function RecentlyWork() {
                           initial={{ opacity: 0, x: 0, y: 0, scale: 0 }}
                           animate={{ 
                             opacity: 1, 
-                            x: collab.pos.x, 
-                            y: collab.pos.y, 
+                            x: isMobile ? collab.mobilePos.x : collab.desktopPos.x, 
+                            y: isMobile ? collab.mobilePos.y : collab.desktopPos.y, 
                             scale: 1 
                           }}
                           exit={{ opacity: 0, x: 0, y: 0, scale: 0 }}
