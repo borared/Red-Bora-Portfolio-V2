@@ -55,8 +55,8 @@ const personalProjects = [
     image:
       "https://res.cloudinary.com/dicrvjstp/image/upload/v1774028066/Screenshot_2026-03-21_003322_tz1sbz.png",
     tags: ["React", "Vite", "JavaScript"],
-    link: "#",
-    demo: "https://tos-trip-trip-guidance-website.vercel.app/",
+    link: "https://github.com/borared/Red-Bora-Portfolio-V2",
+    demo: "https://red-bora-portfolio-v2.vercel.app/",
   },
   {
     id: 2,
@@ -65,8 +65,8 @@ const personalProjects = [
     image:
       "https://res.cloudinary.com/dicrvjstp/image/upload/v1774028194/Screenshot_2026-03-21_003624_hz7eu9.png",
     tags: ["React", "Vite", "JavaScript"],
-    link: "#",
-    demo: "https://tos-trip-trip-guidance-website.vercel.app/",
+    link: "https://github.com/borared/Web-Mojo",
+    demo: "https://web-mojo.vercel.app/",
   },
   {
     id: 3,
