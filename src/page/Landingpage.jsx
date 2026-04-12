@@ -6,7 +6,6 @@ import DesignWork from "../components/landingpage/DesignWork";
 import SkillAndHobb from "../components/landingpage/SkillAndHobb";
 import AllProject from "../components/landingpage/AllProject";
 import Buildme from "../components/landingpage/Buildme";
-import LocationBased from "../components/landingpage/LocationBased";
 import MoreDetailAbout from "../components/landingpage/MoreDetailAbout";
 export default function LandingPage() {
   return (
@@ -18,7 +17,6 @@ export default function LandingPage() {
       <DesignWork />
       <AllProject />
       <Buildme />
-      <LocationBased />
       <MoreDetailAbout />
     </div>
   )
