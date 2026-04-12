@@ -1,6 +1,7 @@
 import React from "react";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import Magnetic from "./Magnetic";
+import resumePDF from "../../fileCV/Red Bora CV (2).pdf";
 
 export default function Footer() {
   return (
@@ -30,8 +31,8 @@ export default function Footer() {
             </Magnetic>
             <Magnetic>
               <a 
-                href="#" 
-                download 
+                href={resumePDF}
+                download="Red_Bora_CV.pdf"
                 className="block px-8 py-3.5 bg-transparent border-2 border-neutral-300 text-white font-bold rounded-full hover:border-white hover:bg-white/10 transition-all hover:scale-105 active:scale-95"
               >
                 Download my resume
