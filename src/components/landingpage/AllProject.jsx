@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, ExternalLink, GitBranch } from "lucide-react";
+import { ChevronLeft, ChevronRight, ExternalLink, GitBranch, X } from "lucide-react";
 
 // ── Data ────────────────────────────────────────────────────────────────────
 
@@ -76,7 +76,14 @@ const personalProjects = [
       "https://res.cloudinary.com/dicrvjstp/image/upload/v1774028656/Screenshot_2026-03-21_004403_a5slxk.png",
     tags: ["PhotoShop", "UI Design"],
     link: "#",
-    demo: "https://tos-trip-trip-guidance-website.vercel.app/",
+    demo: "#",
+    galleryImages: [
+      "https://res.cloudinary.com/dicrvjstp/image/upload/v1775997911/80x200_jpd5sm.jpg",
+      "https://res.cloudinary.com/dicrvjstp/image/upload/v1775997911/OPTION5_ftdubu.jpg",
+      "https://res.cloudinary.com/dicrvjstp/image/upload/v1775997910/PEAK4_x9j9nj.jpg",
+      "https://res.cloudinary.com/dicrvjstp/image/upload/v1775997910/60x90_ddv9k4.jpg",
+      "https://res.cloudinary.com/dicrvjstp/image/upload/v1775997909/Option_6_khloty.jpg"
+    ]
   },
   {
     id: 4,
@@ -92,7 +99,7 @@ const personalProjects = [
 
 // ── Sub-components ───────────────────────────────────────────────────────────
 
-function ProjectCard({ project }) {
+function ProjectCard({ project, onOpenGallery }) {
   const [hovered, setHovered] = useState(false);
 
   return (
@@ -158,12 +165,17 @@ function ProjectCard({ project }) {
             Code
           </a>
           <a
-            href={project.demo !== "#" ? project.demo : undefined}
-            target="_blank"
+            href={project.demo !== "#" && !project.galleryImages ? project.demo : "#"}
+            target={!project.galleryImages ? "_blank" : undefined}
             rel="noreferrer"
-            className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-[#000000] text-white hover:bg-[#4365c4] transition-colors text-[14px] font-semibold"
+            className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-[#000000] text-white hover:bg-[#4365c4] transition-colors text-[14px] font-semibold cursor-pointer"
             onClick={(e) => {
-              if(!project.demo || project.demo === "#") e.preventDefault();
+              if (project.galleryImages) {
+                e.preventDefault();
+                if (onOpenGallery) onOpenGallery(project.galleryImages);
+              } else if (!project.demo || project.demo === "#") {
+                e.preventDefault();
+              }
             }}
           >
             <ExternalLink className="w-4 h-4" />
@@ -175,7 +187,7 @@ function ProjectCard({ project }) {
   );
 }
 
-function ProjectCarousel({ projects }) {
+function ProjectCarousel({ projects, onOpenGallery }) {
   const scrollRef = useRef(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -226,7 +238,7 @@ function ProjectCarousel({ projects }) {
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
         {projects.map((project) => (
-          <ProjectCard key={project.id} project={project} />
+          <ProjectCard key={project.id} project={project} onOpenGallery={onOpenGallery} />
         ))}
       </div>
     </div>
@@ -241,8 +253,11 @@ const categories = [
 ];
 
 export default function AllProject() {
+  const [selectedGallery, setSelectedGallery] = useState(null);
+
   return (
-    <section id="projects" className="bg-white py-20 px-6 md:px-10 lg:px-16">
+    <>
+      <section id="projects" className="bg-white py-20 px-6 md:px-10 lg:px-16">
       {/* Section header */}
       <div className="max-w-3xl mx-auto text-center mb-16">
         <motion.h2
@@ -288,10 +303,54 @@ export default function AllProject() {
               </h3>
             </div>  
 
-            <ProjectCarousel projects={data} />
+            <ProjectCarousel projects={data} onOpenGallery={setSelectedGallery} />
           </motion.div>
         ))}
       </div>
     </section>
+
+      {/* Full-Screen Gallery Modal */}
+      <AnimatePresence>
+        {selectedGallery && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex justify-center bg-black/80 backdrop-blur-sm p-4 md:p-10 pt-20"
+            onClick={() => setSelectedGallery(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 20 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative w-full max-w-5xl h-full max-h-[85vh] bg-[#1a1a1a] rounded-2xl overflow-hidden shadow-2xl flex flex-col"
+            >
+              <button
+                onClick={() => setSelectedGallery(null)}
+                className="absolute top-4 right-4 z-10 w-10 h-10 bg-black/60 hover:bg-black text-white rounded-full flex items-center justify-center transition-colors shadow-lg"
+                aria-label="Close modal"
+              >
+                <X className="w-5 h-5" />
+              </button>
+              
+              <div
+                className="overflow-y-auto w-full h-full p-4 md:p-8 flex flex-col items-center gap-12 scroll-smooth"
+                style={{ scrollbarWidth: "thin", scrollbarColor: "#4f4f4f #1a1a1a" }}
+              >
+                {selectedGallery.map((imgUrl, i) => (
+                  <img
+                    key={i}
+                    src={imgUrl}
+                    alt={`Gallery item ${i + 1}`}
+                    className="w-full max-w-3xl h-auto rounded-lg shadow-xl"
+                  />
+                ))}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
