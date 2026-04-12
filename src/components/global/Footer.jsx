@@ -1,5 +1,6 @@
 import React from "react";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import Magnetic from "./Magnetic";
 
 export default function Footer() {
   return (
@@ -7,8 +8,8 @@ export default function Footer() {
       {/* Inner container — stacks on mobile/md, side-by-side on lg */}
       <div className="relative max-w-6xl mx-auto px-6 md:px-12 lg:px-2 flex flex-col lg:flex-row items-center justify-between gap-8 py-20 lg:mt-72">
 
-        {/* ── Left: copyright text ── */}
-        <div className="z-10 text-center lg:text-left">
+        {/* ── Left: copyright text & buttons ── */}
+        <div className="z-10 text-center lg:text-left flex flex-col gap-4">
           <p
             className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black tracking-tight leading-tight"
             style={{ fontFamily: "Mooli" }}
@@ -17,6 +18,26 @@ export default function Footer() {
             <br className="hidden sm:block lg:hidden" />
             PORTFOLIO
           </p>
+          
+          <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center lg:justify-start gap-4 mt-6 z-20">
+            <Magnetic>
+              <a 
+                href="#contact" 
+                className="block px-8 py-3.5 bg-white text-black font-bold rounded-full hover:scale-105 hover:bg-neutral-100 transition-all active:scale-95 shadow-lg"
+              >
+                Contact
+              </a>
+            </Magnetic>
+            <Magnetic>
+              <a 
+                href="#" 
+                download 
+                className="block px-8 py-3.5 bg-transparent border-2 border-neutral-300 text-white font-bold rounded-full hover:border-white hover:bg-white/10 transition-all hover:scale-105 active:scale-95"
+              >
+                Download my resume
+              </a>
+            </Magnetic>
+          </div>
         </div>
 
         {/* ── Right: Lottie + white-circle decoration ── */}
