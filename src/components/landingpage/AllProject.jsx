@@ -37,6 +37,16 @@ const schoolProjects = [
   },
   {
     id: 4,
+    title: "Mini Calculator",
+    tagline: "A simple calculator with basic arithmetic operations.",
+    image:
+      "https://res.cloudinary.com/dicrvjstp/image/upload/v1776058028/Screenshot_2026-04-13_122656_y8nkua.png",
+    tags: ["Circuit Verse Tool"],
+    link: "#",
+    demo: "https://circuitverse.org/simulator/edit/final-mini-calculator-project-g2-t4",
+  },
+  {
+    id: 5,
     title: "N/A",
     tagline: "N/A",
     image:
