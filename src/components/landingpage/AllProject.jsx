@@ -13,7 +13,7 @@ const schoolProjects = [
       "https://res.cloudinary.com/dicrvjstp/image/upload/v1774027492/Screenshot_2026-03-19_222317_wzljbh.png",
     tags: ["React", "Node.js", "MongoDB"],
     link: "https://github.com/borared/frontend-naek-watch",
-    demo: "https://tos-trip-trip-guidance-website.vercel.app/",
+    demo: "https://naek-watch.vercel.app/",
   },
   {
     id: 2,
