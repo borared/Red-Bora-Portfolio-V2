@@ -55,7 +55,8 @@ export default function RecentlyWork() {
             {/* Buttons */}
             <div className="flex flex-wrap items-center gap-4 pt-2">
               {/* Demo button */}
-              <button className="inline-flex items-center gap-2 rounded-full bg-black text-white px-6 py-2.5 text-sm md:text-base font-medium shadow-md hover:shadow-lg hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-black transition hover:cursor-pointer">
+              <a href="https://naek-watch.vercel.app/" target="_blank" rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-black text-white px-6 py-2.5 text-sm md:text-base font-medium shadow-md hover:shadow-lg hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-black transition hover:cursor-pointer">
                 <span>Demo</span>
                 <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/10">
                   <svg
@@ -67,7 +68,7 @@ export default function RecentlyWork() {
                     <path d="M8 5v14l11-7z" />
                   </svg>
                 </span>
-              </button>
+              </a>
 
               {/* Collaborator button */}
               <div className="relative inline-block">
