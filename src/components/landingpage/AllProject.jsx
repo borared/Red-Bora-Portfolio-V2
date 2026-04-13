@@ -87,13 +87,13 @@ const personalProjects = [
   },
   {
     id: 4,
-    title: "N/A",
-    tagline: "N/A",
+    title: "Portfolio V1",
+    tagline: "My personal portfolio — designed from scratch",
     image:
-      "https://res.cloudinary.com/dicrvjstp/image/upload/v1773494163/Screenshot_2026-03-14_201443_rwhkos.png",
-    tags: ["N/A", "N/A"],
-    link: "#",
-    demo: "https://tos-trip-trip-guidance-website.vercel.app/",
+      "https://res.cloudinary.com/dicrvjstp/image/upload/v1776057257/Screenshot_2026-04-13_121403_wkgfp0.png",
+    tags: ["React JS", "Vite", "JavaScript"],
+    link: "https://github.com/borared/Red-Bora-Portfolio",
+    demo: "https://red-bora-portfolio.vercel.app/",
   },
 ];
 
