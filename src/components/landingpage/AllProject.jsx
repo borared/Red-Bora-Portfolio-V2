@@ -305,13 +305,18 @@ export default function AllProject() {
           >
             {/* Category label */}
             <div className="flex items-center justify-between mb-8">
-              <h3
-                className="text-xl md:text-2xl font-bold text-black"
-                style={{ fontFamily: '"Mooli", sans-serif' }}
-              >
-                {label}
-              </h3>
-            </div>  
+              <div className="flex items-center gap-3">
+                <h3
+                  className="text-xl md:text-2xl font-bold text-black"
+                  style={{ fontFamily: '"Mooli", sans-serif' }}
+                >
+                  {label}
+                </h3>
+                <span className="flex items-center justify-center w-7 h-7 rounded-full bg-black text-white text-xs font-bold">
+                  {data.length}
+                </span>
+              </div>
+            </div>
 
             <ProjectCarousel projects={data} onOpenGallery={setSelectedGallery} />
           </motion.div>
