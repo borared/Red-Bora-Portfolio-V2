@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const journeyData = [
@@ -44,6 +44,14 @@ const journeyData = [
 
 export default function EduJourney() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const sectionRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], [-100, 100]);
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % journeyData.length);
@@ -64,7 +72,7 @@ export default function EduJourney() {
   const currentItem = journeyData[currentIndex];
 
   return (
-    <section id="education" className="bg-[#fdfcf9] py-20 px-6 md:px-10 lg:px-16">
+    <section id="education" ref={sectionRef} className="bg-[#fdfcf9] py-20 px-6 md:px-10 lg:px-16">
       <div className="max-w-3xl mx-auto text-center mb-16">
         <motion.h2
           className="text-5xl md:text-6xl font-black text-black mb-4 leading-tight"
@@ -106,10 +114,11 @@ export default function EduJourney() {
               className="absolute inset-0"
             >
               {/* Background Image */}
-              <img
+              <motion.img
                 src={currentItem.image}
                 alt={currentItem.school}
-                className="w-full h-full object-cover"
+                className="absolute inset-0 w-full h-[130%] -top-[15%] object-cover will-change-transform"
+                style={{ y }}
               />
               
               {/* Gradient Overlay & Content */}
