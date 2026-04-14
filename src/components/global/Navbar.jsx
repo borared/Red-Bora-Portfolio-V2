@@ -5,9 +5,9 @@ import Magnetic from "./Magnetic";
 
 const menuItems = [
   { id: "home", label: "Home", Icon: Home, href: "/" },
-  { id: "projects", label: "Projects", Icon: FolderKanban, href: "#projects" },
-  { id: "about", label: "About", Icon: User, href: "#about" },
-  { id: "contact", label: "Contact", Icon: Mail, href: "#contact" },
+  { id: "projects", label: "Projects", Icon: FolderKanban, href: "/#projects" },
+  { id: "about", label: "About", Icon: User, href: "/#about" },
+  { id: "contact", label: "Contact", Icon: Mail, href: "/contact" },
 ];
 
 const Navbar = () => {
@@ -25,7 +25,7 @@ const Navbar = () => {
     <nav className="flex items-center justify-between px-10 py-6">
       {/* Logo */}
       <a
-        href="#"
+        href="/"
         className="text-2xl tracking-tight text-black"
         style={{ fontFamily: '"Stretch Pro", sans-serif' }}
       >
