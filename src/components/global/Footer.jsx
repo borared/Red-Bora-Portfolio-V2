@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import Magnetic from "./Magnetic";
 import resumePDF from "../../fileCV/Red Bora CV (2).pdf";
@@ -22,12 +23,12 @@ export default function Footer() {
           
           <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center lg:justify-start gap-4 mt-6 z-20">
             <Magnetic>
-              <a 
-                href="#contact" 
+              <Link 
+                to="/contact" 
                 className="block px-8 py-3.5 bg-white text-black font-bold rounded-full hover:scale-105 hover:bg-neutral-100 transition-all active:scale-95 shadow-lg"
               >
                 Contact
-              </a>
+              </Link>
             </Magnetic>
             <Magnetic>
               <a 
