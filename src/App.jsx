@@ -6,6 +6,7 @@ import DraggableGithub from "./components/global/DraggableGithub";
 import CustomCursor from "./components/global/CustomCursor";
 import Footer from "./components/global/Footer";
 import IntroLoader from "./components/global/IntroLoader";
+import Contact from "./page/Contact";
 
 function App() {
   const [introVisible, setIntroVisible] = useState(true);
@@ -25,6 +26,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<LandingPage />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
     </BrowserRouter>
