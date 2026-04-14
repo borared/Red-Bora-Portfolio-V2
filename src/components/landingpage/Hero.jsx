@@ -49,13 +49,13 @@ export default function Hero() {
           >
             <div className="whitespace-nowrap flex w-full">
               <span
-                className="text-9xl font-black text-black px-4"
+                className="text-9xl font-black italic text-black px-4"
                 style={{ fontFamily: '"Stretch Pro", sans-serif' }}
               >
                 RED BOORA RED BOORA
               </span>
               <span
-                className="text-9xl font-black text-black px-4"
+                className="text-9xl font-black italic text-black px-4"
                 style={{ fontFamily: '"Stretch Pro", sans-serif' }}
               >
                 RED BOORA RED BOORA
