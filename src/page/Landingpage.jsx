@@ -5,6 +5,7 @@ import RecentlyWork from "../components/landingpage/RecentlyWork";
 import DesignWork from "../components/landingpage/DesignWork";
 import SkillAndHobb from "../components/landingpage/SkillAndHobb";
 import AllProject from "../components/landingpage/AllProject";
+import EduJourney from "../components/landingpage/EduJourney";
 import Buildme from "../components/landingpage/Buildme";
 import MoreDetailAbout from "../components/landingpage/MoreDetailAbout";
 import Model2D from "../components/landingpage/Model2D";
@@ -18,6 +19,7 @@ export default function LandingPage() {
       <RecentlyWork />
       <DesignWork />
       <AllProject />
+      <EduJourney />
       <Buildme />
       <MoreDetailAbout />
       <Model2D />
