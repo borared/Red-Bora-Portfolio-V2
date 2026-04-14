@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Magnetic from "../global/Magnetic";
+import { Link } from "react-router-dom";
 
 export default function Buildme() {
   return (
@@ -20,9 +21,12 @@ export default function Buildme() {
         </h2>
 
         <Magnetic strength={2}>
-          <button className="hover:cursor-pointer inline-flex items-center justify-center rounded-full bg-white text-black px-8 py-3 text-sm font-semibold tracking-wide shadow-lg shadow-black/20 hover:shadow-xl transition">
-            Build me project
-          </button>
+          <Link 
+                to="/contact" 
+                className="hover:cursor-pointer inline-flex items-center justify-center rounded-full bg-white text-black px-8 py-3 text-sm font-semibold tracking-wide shadow-lg shadow-black/20 hover:shadow-xl transition"
+              >
+                Build me project
+              </Link>
         </Magnetic>
       </motion.div>
     </section>
