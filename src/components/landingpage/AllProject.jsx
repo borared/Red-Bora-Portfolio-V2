@@ -60,6 +60,16 @@ const schoolProjects = [
 const personalProjects = [
   {
     id: 1,
+    title: "Sched",
+    tagline: "Sched is a minimalist full-stack Study Planner web application designed to help students organize their tasks, manage deadlines, and track study progress in a simple and user-friendly way.",
+    image:
+      "https://res.cloudinary.com/dicrvjstp/image/upload/v1776334290/Screenshot_2026-04-16_171101_bdll5y.png",
+    tags: ["React", "Node.js", "MongoDB"],
+    link: "https://github.com/borared/Sched-Student-Planner-Subject",
+    demo: "https://sched-planner.vercel.app/",
+  },
+  {
+    id: 2,
     title: "Portfolio V2",
     tagline: "My personal portfolio — designed from scratch",
     image:
@@ -69,7 +79,7 @@ const personalProjects = [
     demo: "https://red-bora-portfolio-v2.vercel.app/",
   },
   {
-    id: 2,
+    id: 3,
     title: "Web Mojo",
     tagline: "A freelance company site",
     image:
@@ -79,7 +89,7 @@ const personalProjects = [
     demo: "https://web-mojo.vercel.app/",
   },
   {
-    id: 3,
+    id: 4,
     title: "Banner Design",
     tagline: "Freelance at Vachana Dental Clinic",
     image:
@@ -96,7 +106,7 @@ const personalProjects = [
     ]
   },
   {
-    id: 4,
+    id: 5,
     title: "Portfolio V1",
     tagline: "My personal portfolio — designed from scratch",
     image:
