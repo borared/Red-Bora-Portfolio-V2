@@ -75,7 +75,7 @@ export default function EduJourney() {
     <section id="education" ref={sectionRef} className="bg-[#fdfcf9] py-20 px-6 md:px-10 lg:px-16">
       <div className="max-w-3xl mx-auto text-center mb-16">
         <motion.h2
-          className="text-5xl md:text-6xl font-black text-black mb-4 leading-tight"
+          className="text-3xl md:text-5xl lg:text-6xl font-black text-black mb-4 leading-tight"
           style={{ fontFamily: '"Stretch Pro", sans-serif' }}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
