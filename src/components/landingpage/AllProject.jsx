@@ -281,7 +281,7 @@ export default function AllProject() {
       {/* Section header */}
       <div className="max-w-3xl mx-auto text-center mb-16">
         <motion.h2
-          className="text-5xl md:text-6xl font-black text-black mb-4 leading-tight"
+          className="text-3xl sm:text-4xl md:text-6xl font-black text-black mb-4 leading-tight"
           style={{ fontFamily: '"Stretch Pro", sans-serif' }}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
