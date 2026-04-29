@@ -40,18 +40,19 @@ const Navbar = () => {
           <Magnetic strength={3}>
             <div className="relative group p-4 cursor-pointer">
               {/* The Dot */}
-              <span className="absolute left-1 bottom-2 w-2.5 h-2.5 bg-black rounded-full transition-transform duration-300 group-hover:scale-125 z-10" />
+              <span className="absolute left-1 bottom-2 w-2.5 h-2.5 bg-black rounded-full transition-all duration-300 group-hover:scale-125 group-hover:bg-[#3163eb] z-10" />
 
               {/* The Button */}
               <button
                 type="button"
                 aria-label="Open navigation menu"
                 onClick={toggleMenu}
-                className="relative w-14 h-14 bg-black rounded-full flex items-center justify-center group-hover:animate-liquid transition-all duration-300 hover:cursor-pointer"
+                className="relative overflow-hidden w-14 h-14 bg-black rounded-full flex items-center justify-center group-hover:animate-liquid transition-all duration-300 hover:cursor-pointer"
               >
+                <div className="absolute inset-0 bg-[#3163eb] translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 rounded-full" />
                 {/* Parallax effect for the inner lines */}
                 <Magnetic strength={1.5}>
-                  <div className="flex flex-col gap-1.5 pointer-events-none">
+                  <div className="relative z-10 flex flex-col gap-1.5 pointer-events-none">
                     <span className="block w-6 h-[2px] bg-white rounded-full" />
                     <span className="block w-6 h-[2px] bg-white rounded-full" />
                     <span className="block w-6 h-[2px] bg-white rounded-full" />
