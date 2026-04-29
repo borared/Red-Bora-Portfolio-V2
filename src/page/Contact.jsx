@@ -177,7 +177,7 @@ export default function Contact() {
             <div className="flex flex-col gap-4">
               <h5 className="text-neutral-500 text-xs font-bold uppercase tracking-widest">Connect</h5>
               <div className="flex flex-col gap-2">
-                <a href="#" className="text-xl font-medium inline-flex items-center gap-2 text-white hover:text-[#3163eb] w-fit group">
+                <a href="https://github.com/borared" target="blank" className="text-xl font-medium inline-flex items-center gap-2 text-white hover:text-[#3163eb] w-fit group">
                   <ArrowUpRight className="w-5 h-5 text-neutral-500 group-hover:text-[#3163eb] transition-colors" />
                   GitHub / borared
                 </a>
