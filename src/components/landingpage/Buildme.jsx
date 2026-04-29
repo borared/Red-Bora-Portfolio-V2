@@ -22,11 +22,15 @@ export default function Buildme() {
 
         <Magnetic strength={2}>
           <Link 
-                to="/contact" 
-                className="hover:cursor-pointer inline-flex items-center justify-center rounded-full bg-white text-black px-8 py-3 text-sm font-semibold tracking-wide shadow-lg shadow-black/20 hover:shadow-xl transition"
-              >
-                Build me project
-              </Link>
+            to="/contact" 
+            className="group relative inline-flex items-center gap-4 bg-[#3163eb] text-white px-8 py-5 md:px-12 md:py-6 rounded-full overflow-hidden hover:scale-[1.02] active:scale-[0.98] transition-transform shadow-lg shadow-[#3163eb]/20 cursor-pointer"
+          >
+            <div className="absolute inset-0 bg-[#2850be] translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 rounded-full" />
+            <span className="relative z-10 text-lg md:text-xl font-bold tracking-wide">
+              Build me project
+            </span>
+            <div className="w-[10px] h-[10px] bg-white rounded-full relative z-10 group-hover:scale-125 transition-transform" />
+          </Link>
         </Magnetic>
       </motion.div>
     </section>
