@@ -25,9 +25,10 @@ export default function Footer() {
             <Magnetic>
               <Link 
                 to="/contact" 
-                className="block px-8 py-3.5 bg-white text-black font-bold rounded-full hover:scale-105 hover:bg-neutral-100 transition-all active:scale-95 shadow-lg"
+                className="group relative block px-8 py-3.5 bg-white text-black font-bold rounded-full hover:scale-105 transition-all active:scale-95 shadow-lg overflow-hidden hover:text-white"
               >
-                Contact
+                <div className="absolute inset-0 bg-[#3163eb] translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 rounded-full" />
+                <span className="relative z-10">Contact</span>
               </Link>
             </Magnetic>
             <Magnetic>
