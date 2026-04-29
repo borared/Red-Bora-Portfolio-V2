@@ -124,7 +124,7 @@ function ProjectCard({ project, onOpenGallery }) {
 
   return (
     <motion.div
-      className="relative flex flex-col flex-shrink-0 w-[300px] md:w-[350px] min-h-[420px] rounded-2xl overflow-hidden border border-neutral-200 shadow-sm cursor-pointer group bg-[#fdfcf9]"
+      className="relative flex flex-col group w-full"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -132,51 +132,25 @@ function ProjectCard({ project, onOpenGallery }) {
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
     >
-      {/* Top Image area */}
-      <div className="h-[200px] w-full bg-blue-100/50 overflow-hidden relative border-b border-neutral-100">
+      {/* Dark container for image */}
+      <div className="bg-[#1e1e1e] rounded-[1.5rem] p-3 md:p-5 mb-4 relative overflow-hidden flex items-center justify-center">
         <motion.img
           src={project.image}
           alt={project.title}
-          className="w-full h-full object-cover"
-          animate={{ scale: hovered ? 1.05 : 1 }}
+          className="w-full h-auto aspect-video object-cover rounded-xl"
+          animate={{ scale: hovered ? 1.03 : 1 }}
           transition={{ duration: 0.45, ease: "easeOut" }}
         />
-      </div>
-
-      {/* Content area */}
-      <div className="p-6 flex flex-col flex-grow">
-        <div className="flex items-start justify-between mb-3">
-          <h3 className="text-gray-900 group-hover:text-[#000000] font-bold text-[18px] leading-tight transition-colors pr-2">
-            {project.title}
-          </h3>
-          <div className={`flex-shrink-0 w-6 h-6 rounded-full border border-[#bbcefb] flex items-center justify-center transition-opacity duration-300 ${hovered ? 'opacity-100' : 'opacity-0'}`}>
-            <div className="w-1.5 h-1.5 bg-[#000000] rounded-full"></div>
-          </div>
-        </div>
         
-        <p className="text-neutral-500 text-[14px] leading-relaxed mb-6 line-clamp-3">
-          {project.tagline}
-        </p>
-
-        {/* Tags */}
-        <div className="flex flex-wrap gap-2 mb-6 mt-auto">
-          {project.tags.map((tag) => (
-            <span
-              key={tag}
-              className="text-[11px] font-semibold bg-[#eef2fc] text-[#537AE0] rounded-full px-3 py-1"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-
-        {/* Buttons */}
-        <div className="flex gap-3 mt-auto">
+        {/* Hover overlay for buttons */}
+        <motion.div 
+          className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4 rounded-[1.5rem]"
+        >
           <a
             href={project.link !== "#" ? project.link : undefined}
             target="_blank"
             rel="noreferrer"
-            className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl border border-neutral-300 text-neutral-600 hover:bg-neutral-100 transition-colors text-[14px] font-semibold"
+            className="flex items-center gap-2 px-5 py-2.5 bg-white text-black rounded-full font-bold hover:scale-105 transition-transform text-sm"
             onClick={(e) => {
               if(!project.link || project.link === "#") e.preventDefault();
             }}
@@ -188,7 +162,7 @@ function ProjectCard({ project, onOpenGallery }) {
             href={project.demo !== "#" && !project.galleryImages ? project.demo : "#"}
             target={!project.galleryImages ? "_blank" : undefined}
             rel="noreferrer"
-            className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-[#000000] text-white hover:bg-[#4365c4] transition-colors text-[14px] font-semibold cursor-pointer"
+            className="flex items-center gap-2 px-5 py-2.5 bg-black text-white border border-white/20 rounded-full font-bold hover:scale-105 transition-transform text-sm cursor-pointer"
             onClick={(e) => {
               if (project.galleryImages) {
                 e.preventDefault();
@@ -201,75 +175,30 @@ function ProjectCard({ project, onOpenGallery }) {
             <ExternalLink className="w-4 h-4" />
             Demo
           </a>
+        </motion.div>
+      </div>
+
+      {/* Text below */}
+      <div className="flex flex-col px-1">
+        <div className="flex items-center gap-2 flex-wrap">
+          <h3 className="text-black text-base md:text-lg font-medium border-b border-black/30 pb-0.5">
+            {project.title}
+          </h3>
+          <span className="text-neutral-500 text-xs md:text-sm">build with</span>
+          <span className="text-black text-sm md:text-base font-medium border-b border-black/30 pb-0.5">
+            {project.tags?.length > 0 ? project.tags.join(', ') : "Project"}
+          </span>
         </div>
       </div>
     </motion.div>
   );
 }
 
-function ProjectCarousel({ projects, onOpenGallery }) {
-  const scrollRef = useRef(null);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
-
-  const SCROLL_AMOUNT = 360;
-
-  const updateScrollState = () => {
-    const el = scrollRef.current;
-    if (!el) return;
-    setCanScrollLeft(el.scrollLeft > 4);
-    setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 4);
-  };
-
-  const scroll = (dir) => {
-    const el = scrollRef.current;
-    if (!el) return;
-    el.scrollBy({ left: dir * SCROLL_AMOUNT, behavior: "smooth" });
-    setTimeout(updateScrollState, 400);
-  };
-
-  return (
-    <div className="relative">
-      {/* Arrow buttons */}
-      <div className="flex gap-2 absolute -top-12 right-0">
-        <button
-          onClick={() => scroll(-1)}
-          disabled={!canScrollLeft}
-          className="w-9 h-9 rounded-full border border-neutral-300 flex items-center justify-center text-neutral-600 hover:bg-black hover:text-white hover:border-black disabled:opacity-30 disabled:pointer-events-none transition-all duration-200"
-          aria-label="Scroll left"
-        >
-          <ChevronLeft className="w-4 h-4" />
-        </button>
-        <button
-          onClick={() => scroll(1)}
-          disabled={!canScrollRight}
-          className="w-9 h-9 rounded-full border border-neutral-300 flex items-center justify-center text-neutral-600 hover:bg-black hover:text-white hover:border-black disabled:opacity-30 disabled:pointer-events-none transition-all duration-200"
-          aria-label="Scroll right"
-        >
-          <ChevronRight className="w-4 h-4" />
-        </button>
-      </div>
-
-      {/* Scrollable row */}
-      <div
-        ref={scrollRef}
-        onScroll={updateScrollState}
-        className="flex gap-6 overflow-x-auto pb-6 scroll-smooth"
-        style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-      >
-        {projects.map((project) => (
-          <ProjectCard key={project.id} project={project} onOpenGallery={onOpenGallery} />
-        ))}
-      </div>
-    </div>
-  );
-}
-
 // ── Main Component ───────────────────────────────────────────────────────────
 
 const categories = [
-  { key: "school", label: "School Projects", data: schoolProjects },
-  { key: "personal", label: "Personal Projects", data: personalProjects },
+  { key: "school", label: "School Project", data: schoolProjects },
+  { key: "personal", label: "Person Project", data: personalProjects },
 ];
 
 export default function AllProject() {
@@ -277,62 +206,35 @@ export default function AllProject() {
 
   return (
     <>
-      <section id="projects" className="bg-white py-20 px-6 md:px-10 lg:px-16">
-      {/* Section header */}
-      <div className="max-w-3xl mx-auto text-center mb-16">
-        <motion.h2
-          className="text-3xl sm:text-4xl md:text-6xl font-black text-black mb-4 leading-tight"
-          style={{ fontFamily: '"Stretch Pro", sans-serif' }}
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          MY PROOJECT
-        </motion.h2>
-        <motion.p
-          className="text-neutral-500 text-base md:text-lg leading-relaxed"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-        >
-          A comprehensive showcase of my work across different domains — from
-          academic projects to personal experiments and professional
-          contributions.
-        </motion.p>
-      </div>
-
-      {/* Categories */}
-      <div className="max-w-7xl mx-auto space-y-16">
-        {categories.map(({ key, label, data }) => (
-          <motion.div
-            key={key}
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            {/* Category label */}
-            <div className="flex items-center justify-between mb-8">
-              <div className="flex items-center gap-3">
-                <h3
-                  className="text-xl md:text-2xl font-bold text-black"
-                  style={{ fontFamily: '"Mooli", sans-serif' }}
+      <section id="projects" className="bg-[#f0f0f0] py-20 px-6 md:px-10 lg:px-16">
+        <div className="max-w-7xl mx-auto space-y-24">
+          {categories.map(({ key, label, data }) => (
+            <motion.div
+              key={key}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              {/* Category label acting as h1 */}
+              <div className="mb-10">
+                <h1
+                  className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-black max-w-lg leading-tight"
                 >
-                  {label}
-                </h3>
-                <span className="flex items-center justify-center w-7 h-7 rounded-full bg-black text-white text-xs font-bold">
-                  {data.length}
-                </span>
+                  {label}.
+                </h1>
               </div>
-            </div>
 
-            <ProjectCarousel projects={data} onOpenGallery={setSelectedGallery} />
-          </motion.div>
-        ))}
-      </div>
-    </section>
+              {/* Grid Layout */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-10">
+                {data.map((project) => (
+                  <ProjectCard key={project.id} project={project} onOpenGallery={setSelectedGallery} />
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
 
       {/* Full-Screen Gallery Modal */}
       <AnimatePresence>
