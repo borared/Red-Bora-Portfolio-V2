@@ -85,18 +85,18 @@ export default function SkillAndHobb() {
         {/* Vertical Middle Line Divider */}
         <motion.div 
           variants={lineVariants}
-          className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-[#ff3e00] origin-top -translate-x-1/2"
+          className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-black origin-top -translate-x-1/2"
         />
 
         {/* --- LEFT COLUMN: THE CODE --- */}
         <div className="flex flex-col pr-0 md:pr-16 lg:pr-32">
           
           <div className="flex flex-col mb-16 space-y-10 lg:space-y-16 relative">
-            <motion.div variants={labelVariants} className="text-[#ff3e00] text-xs font-mono uppercase font-bold tracking-[0.2em]" style={{ fontFamily: "'Space Mono', monospace" }}>
+            <motion.div variants={labelVariants} className="text-[#3163eb] text-xs font-mono uppercase font-bold tracking-[0.2em]" style={{ fontFamily: "'Space Mono', monospace" }}>
               / WHO AM I / RED BORA
             </motion.div>
             
-            <motion.div variants={labelVariants} className="text-[#ff3e00] text-xs font-mono uppercase font-bold tracking-[0.2em]" style={{ fontFamily: "'Space Mono', monospace" }}>
+            <motion.div variants={labelVariants} className="text-[#3163eb] text-xs font-mono uppercase font-bold tracking-[0.2em]" style={{ fontFamily: "'Space Mono', monospace" }}>
               THE CODE
             </motion.div>
 
@@ -116,7 +116,7 @@ export default function SkillAndHobb() {
                 />
                 
                 <div className="w-[140px] md:w-[130px] shrink-0 overflow-hidden">
-                  <motion.span variants={rowContentVariants} className="text-[#ff3e00] text-xs font-mono font-bold tracking-widest uppercase block" style={{ fontFamily: "'Space Mono', monospace" }}>
+                  <motion.span variants={rowContentVariants} className="text-[#3163eb] text-xs font-mono font-bold tracking-widest uppercase block" style={{ fontFamily: "'Space Mono', monospace" }}>
                     {item.label}
                   </motion.span>
                 </div>
@@ -134,7 +134,7 @@ export default function SkillAndHobb() {
         <div className="flex flex-col pl-0 md:pl-16 lg:pl-32">
           
           <div className="flex flex-col mb-16 space-y-10 lg:space-y-16 relative md:mt-[6.5rem]">
-            <motion.div variants={labelVariants} className="text-[#ff3e00] text-xs font-mono uppercase font-bold tracking-[0.2em]" style={{ fontFamily: "'Space Mono', monospace" }}>
+            <motion.div variants={labelVariants} className="text-[#3163eb] text-xs font-mono uppercase font-bold tracking-[0.2em]" style={{ fontFamily: "'Space Mono', monospace" }}>
               THE CULTURE
             </motion.div>
             
@@ -154,7 +154,7 @@ export default function SkillAndHobb() {
                 />
                 
                 <div className="w-[140px] md:w-[130px] shrink-0 overflow-hidden">
-                  <motion.span variants={rowContentVariants} className="text-[#ff3e00] text-xs font-mono font-bold tracking-widest uppercase block" style={{ fontFamily: "'Space Mono', monospace" }}>
+                  <motion.span variants={rowContentVariants} className="text-[#3163eb] text-xs font-mono font-bold tracking-widest uppercase block" style={{ fontFamily: "'Space Mono', monospace" }}>
                     {item.label}
                   </motion.span>
                 </div>
