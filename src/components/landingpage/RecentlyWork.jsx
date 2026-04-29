@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Magnetic from "../global/Magnetic";
 
 const collaborators = [
   { id: 1, name: "Red Bora", github: "https://github.com/borared", image: "https://github.com/borared.png", desktopPos: { x: 50, y: -75 }, mobilePos: { x: 60, y: -90 } },
@@ -55,29 +56,34 @@ export default function RecentlyWork() {
             {/* Buttons */}
             <div className="flex flex-wrap items-center gap-4 pt-2">
               {/* Demo button */}
-              <a href="https://naek-watch.vercel.app/" target="_blank" rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-black text-white px-6 py-2.5 text-sm md:text-base font-medium shadow-md hover:shadow-lg hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-black transition hover:cursor-pointer">
-                <span>Demo</span>
-                <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/10">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="h-4 w-4"
-                  >
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </span>
-              </a>
+              <Magnetic>
+                <a href="https://naek-watch.vercel.app/" target="_blank" rel="noreferrer"
+                className="group relative overflow-hidden inline-flex items-center gap-2 rounded-full bg-black text-white px-6 py-2.5 text-sm md:text-base font-medium shadow-md hover:shadow-lg hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-black transition hover:cursor-pointer">
+                  <div className="absolute inset-0 bg-[#3163eb] translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 rounded-full" />
+                  <span className="relative z-10">Demo</span>
+                  <span className="relative z-10 inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/10">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="h-4 w-4"
+                    >
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </span>
+                </a>
+              </Magnetic>
 
               {/* Collaborator button */}
               <div className="relative inline-block">
-                <button 
-                  onClick={() => setShowCollaborators(!showCollaborators)}
-                  className="hover:cursor-pointer inline-flex items-center gap-2 rounded-full bg-black text-white px-6 py-2.5 text-sm md:text-base font-medium shadow-md hover:shadow-lg hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-black transition"
-                >
-                  <span>Collaborator</span>
-                  <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/10">
+                <Magnetic>
+                  <button 
+                    onClick={() => setShowCollaborators(!showCollaborators)}
+                    className="group relative overflow-hidden hover:cursor-pointer inline-flex items-center gap-2 rounded-full bg-black text-white px-6 py-2.5 text-sm md:text-base font-medium shadow-md hover:shadow-lg hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-black transition"
+                  >
+                  <div className="absolute inset-0 bg-[#3163eb] translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 rounded-full" />
+                  <span className="relative z-10">Collaborator</span>
+                  <span className="relative z-10 inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/10">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
@@ -88,8 +94,9 @@ export default function RecentlyWork() {
                     </svg>
                   </span>
                 </button>
+              </Magnetic>
 
-                <AnimatePresence>
+              <AnimatePresence>
                   {showCollaborators && (
                     <div className="absolute top-1/2 right-0 pointer-events-none z-10">
                       {collaborators.map((collab, index) => (
