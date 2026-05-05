@@ -60,6 +60,16 @@ const schoolProjects = [
 const personalProjects = [
   {
     id: 1,
+    title: "Zinko",
+    tagline: "Zinko is a gamified quiz platform that transforms learning into an exciting adventure and strategy. It empowers educators to create engaging, interactive quizzes that motivate students and make reviewing course material fun and rewarding.",
+    image:
+      "https://res.cloudinary.com/dicrvjstp/image/upload/v1777997332/Screenshot_2026-05-05_230842_acnwl7.png",
+    tags: ["React", "Node.js", "MongoDB", "WebSocket"],
+    link: "https://github.com/borared/zinko-quiz-with-strategy",
+    demo: "https://sched-planner.vercel.app/",
+  },
+  {
+    id: 2,
     title: "Sched",
     tagline: "Sched is a minimalist full-stack Study Planner web application designed to help students organize their tasks, manage deadlines, and track study progress in a simple and user-friendly way.",
     image:
@@ -69,7 +79,7 @@ const personalProjects = [
     demo: "https://sched-planner.vercel.app/",
   },
   {
-    id: 2,
+    id: 3,
     title: "Portfolio V2",
     tagline: "My personal portfolio — designed from scratch",
     image:
@@ -79,7 +89,7 @@ const personalProjects = [
     demo: "https://red-bora-portfolio-v2.vercel.app/",
   },
   {
-    id: 3,
+    id: 4,
     title: "Web Mojo",
     tagline: "A freelance company site",
     image:
@@ -89,7 +99,7 @@ const personalProjects = [
     demo: "https://web-mojo.vercel.app/",
   },
   {
-    id: 4,
+    id: 5,
     title: "Banner Design",
     tagline: "Freelance at Vachana Dental Clinic",
     image:
@@ -106,7 +116,7 @@ const personalProjects = [
     ]
   },
   {
-    id: 5,
+    id: 6,
     title: "Portfolio V1",
     tagline: "My personal portfolio — designed from scratch",
     image:
