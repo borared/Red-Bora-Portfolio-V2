@@ -216,7 +216,7 @@ export default function AllProject() {
 
   return (
     <>
-      <section id="projects" className="bg-[#f0f0f0] py-20 px-6 md:px-10 lg:px-16">
+      <section id="projects" className="relative z-10 bg-[#f0f0f0] py-20 px-6 md:px-10 lg:px-16">
         <div className="max-w-7xl mx-auto space-y-24">
           {categories.map(({ key, label, data }) => (
             <motion.div
