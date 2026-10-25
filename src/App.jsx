@@ -20,6 +20,14 @@ function App() {
         <IntroLoader onComplete={() => setIntroVisible(false)} />
       )}
 
+      {/* Fixed black border frame stuck around the entire screen */}
+      <div
+        className="fixed inset-[12px] sm:inset-[20px] md:inset-[30px] rounded-[16px] sm:rounded-[24px] md:rounded-[32px] pointer-events-none z-40"
+        style={{
+          boxShadow: "0 0 0 100vmax black",
+        }}
+      />
+
       {/* Main site – already rendered but hidden behind the intro overlay */}
       <Navbar />
       <DraggableGithub />
