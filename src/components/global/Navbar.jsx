@@ -22,25 +22,30 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex items-center justify-between px-10 py-6">
+    <nav className="absolute top-0 left-0 w-full z-[45] bg-transparent flex items-center justify-between px-6 sm:px-10 md:px-16 py-6 sm:py-8 md:py-11 pointer-events-none">
       {/* Logo */}
       <a
         href="/"
-        className="text-2xl tracking-tight text-black"
-        style={{ fontFamily: '"Stretch Pro", sans-serif' }}
+        className="text-lg sm:text-xl md:text-2xl font-black tracking-wide text-black pointer-events-auto transition-transform hover:scale-105 leading-tight block"
+        style={{
+          fontFamily: '"Audiowide", cursive, sans-serif',
+          WebkitTextStroke: "0.5px currentColor",
+        }}
       >
-        RBR
+        RED
+        <br />
+        BORA
       </a>
 
       {/* Hamburger Section (fixed button + menu) */}
-      <div className="fixed top-6 right-10 z-50 flex items-center justify-center">
+      <div className="fixed top-6 right-6 sm:top-8 sm:right-10 md:top-11 md:right-16 z-50 flex items-center justify-center pointer-events-auto">
         {/* Wrapper just for positioning; Magnetic only affects the button */}
         <div className="relative select-none">
           {/* Hamburger + dot with Magnetic */}
           <Magnetic strength={3}>
             <div className="relative group p-4 cursor-pointer">
               {/* The Dot */}
-              <span className="absolute left-1 bottom-2 w-2.5 h-2.5 bg-black rounded-full transition-all duration-300 group-hover:scale-125 group-hover:bg-[#3163eb] z-10" />
+              <span className="absolute left-1 bottom-2 w-2.5 h-2.5 bg-black rounded-full transition-all duration-300 group-hover:scale-125 group-hover:bg-[#ea580c] z-10" />
 
               {/* The Button */}
               <button
@@ -49,7 +54,7 @@ const Navbar = () => {
                 onClick={toggleMenu}
                 className="relative overflow-hidden w-14 h-14 bg-black rounded-full flex items-center justify-center group-hover:animate-liquid transition-all duration-300 hover:cursor-pointer"
               >
-                <div className="absolute inset-0 bg-[#3163eb] translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 rounded-full" />
+                <div className="absolute inset-0 bg-[#ea580c] translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 rounded-full" />
                 {/* Parallax effect for the inner lines */}
                 <Magnetic strength={1.5}>
                   <div className="relative z-10 flex flex-col gap-1.5 pointer-events-none">
