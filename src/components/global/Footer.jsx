@@ -1,72 +1,57 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import Magnetic from "./Magnetic";
 import resumePDF from "../../fileCV/Red Bora CV (2).pdf";
 
 export default function Footer() {
   return (
-    <footer className="relative bg-black text-white overflow-hidden">
-      {/* Inner container — stacks on mobile/md, side-by-side on lg */}
-      <div className="relative max-w-6xl mx-auto px-6 md:px-12 lg:px-2 flex flex-col lg:flex-row items-center justify-between gap-8 py-20 lg:mt-72">
+    <footer className="relative bg-black text-white overflow-hidden min-h-screen h-screen flex items-center justify-center">
+      {/* Background Image Layer */}
+      <div className="absolute inset-0 z-0 select-none pointer-events-none">
+        <img
+          src="https://res.cloudinary.com/dicrvjstp/image/upload/v1793061680/v2_bg_footer1_k1qkbx.jpg"
+          alt="Footer Background"
+          className="w-full h-full object-cover object-left brightness-105"
+        />
+        {/* Subtle dark tint for seamless transitions while keeping bg bright */}
+        <div className="absolute inset-0 bg-black/15 pointer-events-none" />
+        <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/80 to-transparent pointer-events-none" />
+        <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/80 to-transparent pointer-events-none" />
+      </div>
 
-        {/* ── Left: copyright text & buttons ── */}
-        <div className="z-10 text-center lg:text-left flex flex-col gap-4">
+      {/* Inner container */}
+      <div className="relative z-10 max-w-6xl w-full mx-auto px-6 md:px-12 lg:px-8 flex flex-col items-center lg:items-end justify-center">
+
+        {/* Content Box */}
+        <div className="text-center lg:text-right flex flex-col items-center lg:items-end gap-4">
           <p
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black tracking-tight leading-tight"
-            style={{ fontFamily: "Mooli" }}
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-black tracking-wider leading-tight drop-shadow-[0_2px_12px_rgba(255,255,255,0.5)]"
+            style={{ fontFamily: '"Audiowide", cursive, sans-serif' }}
           >
-            ©RBR.
-            <br className="hidden sm:block lg:hidden" />
-            PORTFOLIO
+            ©RBR.PORTFOLIO
           </p>
           
-          <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center lg:justify-start gap-4 mt-6 z-20">
+          <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center lg:justify-end gap-4 mt-6">
             <Magnetic>
               <Link 
                 to="/contact" 
-                className="group relative block px-8 py-3.5 bg-white text-black font-bold rounded-full hover:scale-105 transition-all active:scale-95 shadow-lg overflow-hidden hover:text-white"
+                className="group relative block px-8 py-3.5 bg-[#ea580c] text-white font-bold rounded-full hover:scale-105 transition-all active:scale-95 shadow-2xl overflow-hidden cursor-pointer"
+                style={{ fontFamily: '"Quantico", sans-serif' }}
               >
-                <div className="absolute inset-0 bg-[#ea580c] translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 rounded-full" />
-                <span className="relative z-10">Contact</span>
+                <div className="absolute inset-0 bg-[#c2410c] translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 rounded-full" />
+                <span className="relative z-10 tracking-wider">Contact</span>
               </Link>
             </Magnetic>
             <Magnetic>
               <a 
                 href={resumePDF}
                 download="Red_Bora_CV.pdf"
-                className="block px-8 py-3.5 bg-transparent border-2 border-neutral-300 text-white font-bold rounded-full hover:border-white hover:bg-white/10 transition-all hover:scale-105 active:scale-95"
+                className="block px-8 py-3.5 bg-black/40 backdrop-blur-md border-2 border-white/60 text-white font-bold rounded-full hover:border-white hover:bg-white/20 transition-all hover:scale-105 active:scale-95 shadow-xl tracking-wider cursor-pointer"
+                style={{ fontFamily: '"Quantico", sans-serif' }}
               >
                 Download my resume
               </a>
             </Magnetic>
-          </div>
-        </div>
-
-        {/* ── Right: Lottie + white-circle decoration ── */}
-
-        {/* Mobile / md: simple centered Lottie, no circle overflow */}
-        <div className="lg:hidden relative flex items-center justify-center w-full">
-          <div className="w-[220px] h-[220px] sm:w-[280px] sm:h-[280px] md:w-[320px] md:h-[320px]">
-            <DotLottieReact
-              src="https://lottie.host/4db68bbd-31f6-4cd8-84eb-189de081159a/IGmMCqhzpt.lottie"
-              loop
-              autoplay
-              className="w-full h-full"
-            />
-          </div>
-        </div>
-
-        {/* lg+: original layout with circle and offset Lottie */}
-        <div className="hidden lg:flex relative w-[360px] h-[280px] items-end justify-end">
-          <div className="absolute -right-60 -bottom-50 w-[500px] h-[500px] bg-white rounded-full" />
-          <div className="relative z-80 w-[300px] h-[300px] -bottom-50">
-            <DotLottieReact
-              src="https://lottie.host/4db68bbd-31f6-4cd8-84eb-189de081159a/IGmMCqhzpt.lottie"
-              loop
-              autoplay
-              className="-mt-58 -ml-75 z-0 w-250 flex justify-start"
-            />
           </div>
         </div>
 

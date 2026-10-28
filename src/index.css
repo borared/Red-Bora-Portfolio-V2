@@ -25,6 +25,14 @@
   font-family: "Quantico", sans-serif;
 }
 
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 .playfair-display-uniquifier {
   font-family: "Playfair Display", serif;
   font-optical-sizing: auto;
@@ -198,3 +206,12 @@
     transform: scaleX(1);
   }
 }
+
+@keyframes cyberpunkMarquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
