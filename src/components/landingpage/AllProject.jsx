@@ -9,6 +9,7 @@ import {
   useMotionValueEvent,
 } from "framer-motion";
 import { ExternalLink, GitBranch, X, Layers } from "lucide-react";
+import { optimizeThumb, optimizeBg } from "../../utils/cloudinary";
 
 // ── Data ────────────────────────────────────────────────────────────────────
 
@@ -20,8 +21,9 @@ const schoolProjects = [
     title: "NaekWatch",
     tagline:
       "NaekWatch is a movie streaming online, it provides service movie and series with khmer dubbing. Also NaekWatch has a task to do to earn point for redeem product.",
-    image:
-      "https://res.cloudinary.com/dicrvjstp/image/upload/v1774027492/Screenshot_2026-03-19_222317_wzljbh.png",
+    image: optimizeThumb(
+      "https://res.cloudinary.com/dicrvjstp/image/upload/v1774027492/Screenshot_2026-03-19_222317_wzljbh.png", 800
+    ),
     tags: ["React", "Node.js", "MongoDB"],
     link: "https://github.com/borared/frontend-naek-watch",
     demo: "https://naek-watch.vercel.app/",
@@ -33,8 +35,9 @@ const schoolProjects = [
     title: "TosTrip",
     tagline:
       "TosTrip is a trip guidance exclusively dedicated to guide tourist for their trip around the world. This project showcases the elegance, performance of trip advisor while offering a seamless user experience.",
-    image:
-      "https://res.cloudinary.com/dicrvjstp/image/upload/v1774027670/Screenshot_2026-03-21_002740_qmvzh9.png",
+    image: optimizeThumb(
+      "https://res.cloudinary.com/dicrvjstp/image/upload/v1774027670/Screenshot_2026-03-21_002740_qmvzh9.png", 800
+    ),
     tags: ["HTML", "CSS", "JavaScript"],
     link: "https://github.com/borared/TosTrip-Trip-Guidance-Website",
     demo: "https://tos-trip-trip-guidance-website.vercel.app/",
@@ -46,8 +49,9 @@ const schoolProjects = [
     title: "Hospital Management System",
     tagline:
       "The Hospital Admin Management System is a centralized, object-oriented platform designed to streamline healthcare operations. It serves as a digital hub for administrators to oversee the essential pillars of a hospital's daily workflow.",
-    image:
-      "https://res.cloudinary.com/dicrvjstp/image/upload/v1775829871/Screenshot_2026-04-10_210224_jhl8t1.png",
+    image: optimizeThumb(
+      "https://res.cloudinary.com/dicrvjstp/image/upload/v1775829871/Screenshot_2026-04-10_210224_jhl8t1.png", 800
+    ),
     tags: ["Java", "OOP Concept", "Console-based"],
     link: "https://github.com/borared/Hospital-Admin-Management-System",
     demo: "https://github.com/borared/Hospital-Admin-Management-System",
@@ -58,8 +62,9 @@ const schoolProjects = [
     categoryLabel: "School Project",
     title: "Mini Calculator",
     tagline: "A simple calculator with basic arithmetic operations.",
-    image:
-      "https://res.cloudinary.com/dicrvjstp/image/upload/v1776058028/Screenshot_2026-04-13_122656_y8nkua.png",
+    image: optimizeThumb(
+      "https://res.cloudinary.com/dicrvjstp/image/upload/v1776058028/Screenshot_2026-04-13_122656_y8nkua.png", 800
+    ),
     tags: ["Circuit Verse Tool"],
     link: "#",
     demo: "https://circuitverse.org/simulator/edit/final-mini-calculator-project-g2-t4",
@@ -73,8 +78,9 @@ const personalProjects = [
     categoryLabel: "StartUp Project",
     title: "VEAJA",
     tagline: "AI voice agent that can handle multiple calls at the same time.",
-    image:
-      "https://res.cloudinary.com/dicrvjstp/image/upload/v1792934281/Screenshot_2026-10-25_201753_lsvwzc.png",
+    image: optimizeThumb(
+      "https://res.cloudinary.com/dicrvjstp/image/upload/v1792934281/Screenshot_2026-10-25_201753_lsvwzc.png", 800
+    ),
     tags: ["NestJS", "React", "TypeScript", "Supabase"],
     link: "https://github.com/borared/Red-Bora-Portfolio",
     demo: "https://red-bora-portfolio.vercel.app/",
@@ -86,8 +92,9 @@ const personalProjects = [
     title: "Zinko",
     tagline:
       "Zinko is a gamified quiz platform that transforms learning into an exciting adventure and strategy. It empowers educators to create engaging, interactive quizzes that motivate students and make reviewing course material fun and rewarding.",
-    image:
-      "https://res.cloudinary.com/dicrvjstp/image/upload/v1792934260/Screenshot_2026-10-25_201655_yqzvaw.png",
+    image: optimizeThumb(
+      "https://res.cloudinary.com/dicrvjstp/image/upload/v1792934260/Screenshot_2026-10-25_201655_yqzvaw.png", 800
+    ),
     tags: ["React", "Node.js", "MongoDB", "WebSocket"],
     link: "https://github.com/borared/zinko-quiz-with-strategy",
     demo: "https://zinko.games/",
@@ -98,8 +105,9 @@ const personalProjects = [
     categoryLabel: "Personal Project",
     title: "Portfolio V2",
     tagline: "My personal portfolio — designed from scratch with 3D elements and smooth animations.",
-    image:
-      "https://res.cloudinary.com/dicrvjstp/image/upload/v1792934715/Screenshot_2026-10-25_202456_q00qta.png",
+    image: optimizeThumb(
+      "https://res.cloudinary.com/dicrvjstp/image/upload/v1792934715/Screenshot_2026-10-25_202456_q00qta.png", 800
+    ),
     tags: ["React", "Vite", "JavaScript"],
     link: "https://github.com/borared/Red-Bora-Portfolio-V2",
     demo: "https://red-bora-portfolio-v2.vercel.app/",
@@ -110,19 +118,20 @@ const personalProjects = [
     categoryLabel: "Company Project",
     title: "Khmer PenPal",
     tagline: "Khmer PenPal is a digital drawing letter for kids.",
-    image:
-      "https://res.cloudinary.com/dicrvjstp/image/upload/v1792968664/Screenshot_2026-10-26_055027_yh7ykl.png",
+    image: optimizeThumb(
+      "https://res.cloudinary.com/dicrvjstp/image/upload/v1792968664/Screenshot_2026-10-26_055027_yh7ykl.png", 800
+    ),
     tags: ["PhotoShop", "Gemini", "UI Design", "Mobile App"],
     link: "#",
     demo: "#",
     galleryImages: [
-      "https://res.cloudinary.com/dicrvjstp/image/upload/v1792968919/photo_2026-10-26_05-49-04_omtd3d.jpg",
-      "https://res.cloudinary.com/dicrvjstp/image/upload/v1792968918/photo_2026-10-26_05-49-06_vlpqb8.jpg",
-      "https://res.cloudinary.com/dicrvjstp/image/upload/v1792968918/photo_2026-10-26_05-49-23_mwhif7.jpg",
-      "https://res.cloudinary.com/dicrvjstp/image/upload/v1792968918/photo_2026-10-26_05-49-18_illeab.jpg",
-      "https://res.cloudinary.com/dicrvjstp/image/upload/v1792968918/photo_2026-10-26_05-49-51_cyqfhc.jpg",
-      "https://res.cloudinary.com/dicrvjstp/image/upload/v1792968663/Screenshot_2026-10-26_055004_nojmqh.png",
-      "https://res.cloudinary.com/dicrvjstp/image/upload/v1792968664/Screenshot_2026-10-26_054948_lpebsv.png",
+      optimizeThumb("https://res.cloudinary.com/dicrvjstp/image/upload/v1792968919/photo_2026-10-26_05-49-04_omtd3d.jpg", 1000),
+      optimizeThumb("https://res.cloudinary.com/dicrvjstp/image/upload/v1792968918/photo_2026-10-26_05-49-06_vlpqb8.jpg", 1000),
+      optimizeThumb("https://res.cloudinary.com/dicrvjstp/image/upload/v1792968918/photo_2026-10-26_05-49-23_mwhif7.jpg", 1000),
+      optimizeThumb("https://res.cloudinary.com/dicrvjstp/image/upload/v1792968918/photo_2026-10-26_05-49-18_illeab.jpg", 1000),
+      optimizeThumb("https://res.cloudinary.com/dicrvjstp/image/upload/v1792968918/photo_2026-10-26_05-49-51_cyqfhc.jpg", 1000),
+      optimizeThumb("https://res.cloudinary.com/dicrvjstp/image/upload/v1792968663/Screenshot_2026-10-26_055004_nojmqh.png", 1000),
+      optimizeThumb("https://res.cloudinary.com/dicrvjstp/image/upload/v1792968664/Screenshot_2026-10-26_054948_lpebsv.png", 1000),
     ],
   },
   {
@@ -132,8 +141,9 @@ const personalProjects = [
     title: "Sched",
     tagline:
       "Sched is a minimalist full-stack Study Planner web application designed to help students organize their tasks, manage deadlines, and track study progress in a simple and user-friendly way.",
-    image:
-      "https://res.cloudinary.com/dicrvjstp/image/upload/v1776334290/Screenshot_2026-04-16_171101_bdll5y.png",
+    image: optimizeThumb(
+      "https://res.cloudinary.com/dicrvjstp/image/upload/v1776334290/Screenshot_2026-04-16_171101_bdll5y.png", 800
+    ),
     tags: ["React", "Node.js", "MongoDB"],
     link: "https://github.com/borared/Sched-Student-Planner-Subject",
     demo: "https://sched-planner.vercel.app/",
@@ -144,8 +154,9 @@ const personalProjects = [
     categoryLabel: "Freelance Project",
     title: "Web Mojo",
     tagline: "A freelance company site showcasing web development and creative agency capabilities.",
-    image:
-      "https://res.cloudinary.com/dicrvjstp/image/upload/v1774028194/Screenshot_2026-03-21_003624_hz7eu9.png",
+    image: optimizeThumb(
+      "https://res.cloudinary.com/dicrvjstp/image/upload/v1774028194/Screenshot_2026-03-21_003624_hz7eu9.png", 800
+    ),
     tags: ["React", "Vite", "JavaScript"],
     link: "https://github.com/borared/Web-Mojo",
     demo: "https://web-mojo.vercel.app/",
@@ -156,17 +167,18 @@ const personalProjects = [
     categoryLabel: "Freelance Project",
     title: "Banner Design",
     tagline: "Freelance branding and dental clinic advertising banners created with Photoshop.",
-    image:
-      "https://res.cloudinary.com/dicrvjstp/image/upload/v1774028656/Screenshot_2026-03-21_004403_a5slxk.png",
+    image: optimizeThumb(
+      "https://res.cloudinary.com/dicrvjstp/image/upload/v1774028656/Screenshot_2026-03-21_004403_a5slxk.png", 800
+    ),
     tags: ["PhotoShop", "UI Design"],
     link: "#",
     demo: "#",
     galleryImages: [
-      "https://res.cloudinary.com/dicrvjstp/image/upload/v1775997911/80x200_jpd5sm.jpg",
-      "https://res.cloudinary.com/dicrvjstp/image/upload/v1775997911/OPTION5_ftdubu.jpg",
-      "https://res.cloudinary.com/dicrvjstp/image/upload/v1775997910/PEAK4_x9j9nj.jpg",
-      "https://res.cloudinary.com/dicrvjstp/image/upload/v1775997910/60x90_ddv9k4.jpg",
-      "https://res.cloudinary.com/dicrvjstp/image/upload/v1775997909/Option_6_khloty.jpg",
+      optimizeThumb("https://res.cloudinary.com/dicrvjstp/image/upload/v1775997911/80x200_jpd5sm.jpg", 1000),
+      optimizeThumb("https://res.cloudinary.com/dicrvjstp/image/upload/v1775997911/OPTION5_ftdubu.jpg", 1000),
+      optimizeThumb("https://res.cloudinary.com/dicrvjstp/image/upload/v1775997910/PEAK4_x9j9nj.jpg", 1000),
+      optimizeThumb("https://res.cloudinary.com/dicrvjstp/image/upload/v1775997910/60x90_ddv9k4.jpg", 1000),
+      optimizeThumb("https://res.cloudinary.com/dicrvjstp/image/upload/v1775997909/Option_6_khloty.jpg", 1000),
     ],
   },
   {
@@ -175,8 +187,9 @@ const personalProjects = [
     categoryLabel: "Personal Project",
     title: "Portfolio V1",
     tagline: "My initial personal portfolio — designed from scratch to display early creative projects.",
-    image:
-      "https://res.cloudinary.com/dicrvjstp/image/upload/v1776057257/Screenshot_2026-04-13_121403_wkgfp0.png",
+    image: optimizeThumb(
+      "https://res.cloudinary.com/dicrvjstp/image/upload/v1776057257/Screenshot_2026-04-13_121403_wkgfp0.png", 800
+    ),
     tags: ["React JS", "Vite", "JavaScript"],
     link: "https://github.com/borared/Red-Bora-Portfolio",
     demo: "https://red-bora-portfolio.vercel.app/",
@@ -327,6 +340,8 @@ function ProjectCard({ project, index, onOpenGallery }) {
           <img
             src={project.image}
             alt={project.title}
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover transition-transform duration-500 group-hover/preview:scale-105"
           />
 
@@ -538,8 +553,10 @@ export default function AllProject() {
               className="absolute inset-0 w-[125%] h-full will-change-transform"
             >
               <img
-                src="https://res.cloudinary.com/dicrvjstp/image/upload/v1792923009/v2_bg7_rgfew6.png"
+                src={optimizeBg("https://res.cloudinary.com/dicrvjstp/image/upload/v1792923009/v2_bg7_rgfew6.png", 1920)}
                 alt="All Projects Background"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover object-left md:object-center"
               />
             </motion.div>

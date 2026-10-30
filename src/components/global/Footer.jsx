@@ -1,18 +1,36 @@
-import React from "react";
+import React, { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
 import Magnetic from "./Magnetic";
 import resumePDF from "../../fileCV/Red Bora CV (2).pdf";
+import { optimizeBg } from "../../utils/cloudinary";
 
 export default function Footer() {
+  const footerRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: footerRef,
+    offset: ["start end", "end start"],
+  });
+
+  // Vertical parallax scrolling shift
+  const bgY = useTransform(scrollYProgress, [0, 1], ["-16%", "16%"]);
+
   return (
-    <footer className="relative bg-black text-white overflow-hidden min-h-screen h-screen flex items-center justify-center">
-      {/* Background Image Layer */}
-      <div className="absolute inset-0 z-0 select-none pointer-events-none">
-        {/* Base Image */}
-        <img
-          src="https://res.cloudinary.com/dicrvjstp/image/upload/v1793260679/v2_bg_footer123_vd6qzc.jpg"
+    <footer
+      ref={footerRef}
+      className="relative bg-black text-white overflow-hidden min-h-screen h-screen flex items-center justify-center"
+    >
+      {/* Background Image Layer with Parallax */}
+      <div className="absolute inset-0 z-0 select-none pointer-events-none overflow-hidden">
+        {/* Base Image with Parallax Translation */}
+        <motion.img
+          style={{ y: bgY }}
+          src={optimizeBg("https://res.cloudinary.com/dicrvjstp/image/upload/v1793260679/v2_bg_footer123_vd6qzc.jpg", 1920)}
           alt="Footer Background"
-          className="w-full h-full object-cover object-left brightness-105"
+          loading="lazy"
+          decoding="async"
+          className="absolute -top-[20%] -bottom-[20%] inset-x-0 w-full h-[140%] object-cover object-left brightness-105 will-change-transform"
         />
 
         {/* Smooth Natural Darkening Gradient: 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
+import { optimizeThumb, optimizeBg } from "../../utils/cloudinary";
 
 const journeyData = [
   {
@@ -9,7 +10,7 @@ const journeyData = [
     specialize: "Software Engineer",
     focus: "Full Stack Development",
     year: "2024 - Present",
-    image: "https://res.cloudinary.com/dicrvjstp/image/upload/v1776186397/CCADDTT_wisnb5.jpg",
+    image: optimizeThumb("https://res.cloudinary.com/dicrvjstp/image/upload/v1776186397/CCADDTT_wisnb5.jpg", 1000),
   },
   {
     id: 2,
@@ -19,7 +20,7 @@ const journeyData = [
     focus: "Mathematics & Physics",
     grade: "A 99.403",
     year: "2022 - 2024",
-    image: "https://res.cloudinary.com/dicrvjstp/image/upload/v1776187055/HighSchool_kemxz2.jpg",
+    image: optimizeThumb("https://res.cloudinary.com/dicrvjstp/image/upload/v1776187055/HighSchool_kemxz2.jpg", 1000),
   },
   {
     id: 3,
@@ -28,7 +29,7 @@ const journeyData = [
     specialize: "English",
     focus: "Communication",
     year: "2023 - 2024",
-    image: "https://res.cloudinary.com/dicrvjstp/image/upload/v1776187055/pannasastra_g36sve.jpg",
+    image: optimizeThumb("https://res.cloudinary.com/dicrvjstp/image/upload/v1776187055/pannasastra_g36sve.jpg", 1000),
   },
   {
     id: 4,
@@ -37,7 +38,7 @@ const journeyData = [
     specialize: "Technology",
     focus: "Frontend Development",
     year: "5 weeks (Aug-Sep 2025)",
-    image: "https://res.cloudinary.com/dicrvjstp/image/upload/v1776187073/Next-Gen_atqdcj.jpg",
+    image: optimizeThumb("https://res.cloudinary.com/dicrvjstp/image/upload/v1776187073/Next-Gen_atqdcj.jpg", 1000),
   },
 ];
 
@@ -144,8 +145,10 @@ export default function EduJourney() {
               repeat: Infinity,
               ease: "easeInOut",
             }}
-            src="https://res.cloudinary.com/dicrvjstp/image/upload/v1793059466/v2_bg11_gilerp.jpg"
+            src={optimizeBg("https://res.cloudinary.com/dicrvjstp/image/upload/v1793059466/v2_bg11_gilerp.jpg", 1920)}
             alt="Education Background"
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover object-center will-change-transform opacity-95"
           />
 
@@ -361,6 +364,8 @@ export default function EduJourney() {
                       <img
                         src={item.image}
                         alt={item.school}
+                        loading="lazy"
+                        decoding="async"
                         className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-700 ease-out vintage-archive-photo ${
                           isActive
                             ? `scale-100 ${isGlitching ? "miles-glitch-active" : ""}`

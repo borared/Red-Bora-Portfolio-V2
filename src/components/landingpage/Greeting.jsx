@@ -90,7 +90,7 @@ export default function Greeting() {
           y: bgY,
           scale: bgScale,
           backgroundImage:
-            "url('https://res.cloudinary.com/dicrvjstp/image/upload/v1792860604/Screenshot_2026-10-24_234817_hki36w.png')",
+            "url('https://res.cloudinary.com/dicrvjstp/image/upload/f_auto,q_auto,w_1920/v1792860604/Screenshot_2026-10-24_234817_hki36w.png')",
         }}
         className="absolute -top-[25%] -bottom-[25%] -left-[5%] -right-[5%] bg-cover bg-center bg-no-repeat will-change-transform pointer-events-none"
       />

@@ -104,7 +104,7 @@ export default function Hero() {
           style={{
             y: bgY,
             backgroundImage:
-              "url('https://res.cloudinary.com/dicrvjstp/image/upload/v1792849691/IMG_20261024_201426_403_wg5m6c.jpg')",
+              "url('https://res.cloudinary.com/dicrvjstp/image/upload/f_auto,q_auto,w_1920/v1792849691/IMG_20261024_201426_403_wg5m6c.jpg')",
           }}
           className="absolute inset-0 bg-cover bg-center bg-no-repeat will-change-transform pointer-events-none"
         />

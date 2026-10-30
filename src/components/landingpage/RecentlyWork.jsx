@@ -2,12 +2,13 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Volume2, VolumeX } from "lucide-react";
 import Magnetic from "../global/Magnetic";
+import { optimizeThumb, optimizeBg } from "../../utils/cloudinary";
 
 const collaborators = [
   { id: 1, name: "Red Bora", role: "Product & Frontend Lead", github: "https://github.com/borared", image: "https://github.com/borared.png", desktopPos: { x: 50, y: -75 }, mobilePos: { x: 60, y: -90 } },
-  { id: 2, name: "Sophat Panhaseth", role: "Backend Architecture", github: "https://github.com/Panha-SeTh", image: "https://res.cloudinary.com/dicrvjstp/image/upload/v1775926232/photo_2026-04-11_23-50-17_vmo271.jpg", desktopPos: { x: 75, y: -25 }, mobilePos: { x: 60, y: -30 } },
+  { id: 2, name: "Sophat Panhaseth", role: "Backend Architecture", github: "https://github.com/Panha-SeTh", image: optimizeThumb("https://res.cloudinary.com/dicrvjstp/image/upload/v1775926232/photo_2026-04-11_23-50-17_vmo271.jpg", 150), desktopPos: { x: 75, y: -25 }, mobilePos: { x: 60, y: -30 } },
   { id: 3, name: "Sot Noreaksattya", role: "Frontend & Game UI", github: "https://github.com/Lilsyaz45", image: "https://lilsyaz45.github.io/my-portfolio/image.jpg", desktopPos: { x: 75, y: 30 }, mobilePos: { x: 60, y: 30 } },
-  { id: 4, name: "Tep Kheng Meng Khim", role: "UI/UX & Testing", github: "https://github.com/Mengkhim11", image: "https://res.cloudinary.com/dicrvjstp/image/upload/v1775925357/photo_2026-04-11_23-35-08_b5u1h1.jpg", desktopPos: { x: 50, y: 80 }, mobilePos: { x: 60, y: 90 } },
+  { id: 4, name: "Tep Kheng Meng Khim", role: "UI/UX & Testing", github: "https://github.com/Mengkhim11", image: optimizeThumb("https://res.cloudinary.com/dicrvjstp/image/upload/v1775925357/photo_2026-04-11_23-35-08_b5u1h1.jpg", 150), desktopPos: { x: 50, y: 80 }, mobilePos: { x: 60, y: 90 } },
 ];
 
 /**
@@ -26,7 +27,7 @@ export const recentlyWorks = [
     demoUrl: "https://red-bora-portfolio.vercel.app/",
     bgType: "monitor-terminal",
     bgImage:
-      "https://res.cloudinary.com/dicrvjstp/image/upload/v1792865613/v2_bg3_sizfev.jpg",
+      optimizeBg("https://res.cloudinary.com/dicrvjstp/image/upload/v1792865613/v2_bg3_sizfev.jpg", 1920),
     videoUrl:
       "https://res.cloudinary.com/dicrvjstp/video/upload/v1792865876/veaja-intro-v2_zpf8hz.mp4",
     align: "left",
@@ -44,9 +45,9 @@ export const recentlyWorks = [
     demoUrl: "https://zinko.games/",
     bgType: "monitor-terminal",
     bgImage:
-      "https://res.cloudinary.com/dicrvjstp/image/upload/v1792868190/v2_bg4_vmmwyr.png",
+      optimizeBg("https://res.cloudinary.com/dicrvjstp/image/upload/v1792868190/v2_bg4_vmmwyr.png", 1920),
     screenImage:
-      "https://res.cloudinary.com/dicrvjstp/image/upload/v1777997332/Screenshot_2026-05-05_230842_acnwl7.png",
+      optimizeThumb("https://res.cloudinary.com/dicrvjstp/image/upload/v1777997332/Screenshot_2026-05-05_230842_acnwl7.png", 800),
     videoUrl: "https://res.cloudinary.com/dicrvjstp/video/upload/v1792868731/zinko-intro_jw4blw.mp4",
     align: "right",
     screenCoords: { iw: 1533, ih: 896, left: 171, top: 309, width: 427, height: 319 },
@@ -58,9 +59,33 @@ function WorkSlide({ work, index, total, isMobile }) {
   const [showCollaborators, setShowCollaborators] = useState(false);
   const [hoveredCollab, setHoveredCollab] = useState(null);
   const [isMuted, setIsMuted] = useState(true);
+  const [inView, setInView] = useState(false);
   const videoRef = useRef(null);
   const containerRef = useRef(null);
   const [screenPos, setScreenPos] = useState(null);
+
+  // Lazy observer: only load & play video when slide enters viewport
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setInView(entry.isIntersecting);
+        if (videoRef.current) {
+          if (entry.isIntersecting) {
+            videoRef.current.play().catch(() => {});
+          } else {
+            videoRef.current.pause();
+          }
+        }
+      },
+      { threshold: 0.15 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   // Monitor screen alignment for terminal background type
   useEffect(() => {
@@ -134,6 +159,8 @@ function WorkSlide({ work, index, total, isMobile }) {
         <img
           src={work.bgImage}
           alt={`${work.title} background`}
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover object-center"
         />
 
@@ -151,8 +178,9 @@ function WorkSlide({ work, index, total, isMobile }) {
             {work.videoUrl ? (
               <video
                 ref={videoRef}
-                src={work.videoUrl}
-                autoPlay
+                src={inView ? work.videoUrl : undefined}
+                preload="none"
+                autoPlay={inView}
                 muted={isMuted}
                 loop
                 playsInline
@@ -162,6 +190,8 @@ function WorkSlide({ work, index, total, isMobile }) {
               <img
                 src={work.screenImage}
                 alt={`${work.title} screen display`}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover object-top"
               />
             ) : null}

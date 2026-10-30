@@ -9,6 +9,7 @@ import {
   useMotionValueEvent,
 } from "framer-motion";
 import Magnetic from "../global/Magnetic";
+import { optimizeThumb, optimizeBg } from "../../utils/cloudinary";
 
 export const projects = [
   {
@@ -16,48 +17,54 @@ export const projects = [
     title: "British Wrecks",
     subtitle: "Web UI Design",
     tagline: "A driver's guide to the ship wrecks around Ireland",
-    image:
-      "https://res.cloudinary.com/dicrvjstp/image/upload/v1773458411/IrishWreckk_yeng2q.jpg",
+    image: optimizeThumb(
+      "https://res.cloudinary.com/dicrvjstp/image/upload/v1773458411/IrishWreckk_yeng2q.jpg", 1000
+    ),
   },
   {
     id: 2,
     title: "Cambodia",
     subtitle: "Tourism Poster Design",
     tagline: "Welcome to Kingdom of Wonder — Travel with happiness",
-    image:
-      "https://res.cloudinary.com/dicrvjstp/image/upload/v1773458410/Cambodia_iaqr84.jpg",
+    image: optimizeThumb(
+      "https://res.cloudinary.com/dicrvjstp/image/upload/v1773458410/Cambodia_iaqr84.jpg", 1000
+    ),
   },
   {
     id: 3,
     title: "CADT Restaurant",
     subtitle: "Brand & Menu Design",
     tagline: "Get your hunger menu",
-    image:
-      "https://res.cloudinary.com/dicrvjstp/image/upload/v1773458411/Cadt_Hang_riubcd_rkhalk.jpg",
+    image: optimizeThumb(
+      "https://res.cloudinary.com/dicrvjstp/image/upload/v1773458411/Cadt_Hang_riubcd_rkhalk.jpg", 1000
+    ),
   },
   {
     id: 4,
     title: "Coke Sustainability",
     subtitle: "Campaign UI Mockup",
     tagline: "Enjoy again and again and again",
-    image:
-      "https://res.cloudinary.com/dicrvjstp/image/upload/v1773458410/Coca_UI122_b7g4jz.jpg",
+    image: optimizeThumb(
+      "https://res.cloudinary.com/dicrvjstp/image/upload/v1773458410/Coca_UI122_b7g4jz.jpg", 1000
+    ),
   },
   {
     id: 5,
     title: "Zinko Quiz",
     subtitle: "Master the Quiz Control the Outcome",
     tagline: "A gamified quiz platform that feels like a real game competition, with team VS team and build more strategy, engagement, motivation between a group of friend, teacher, family.",
-    image:
-      "https://res.cloudinary.com/dicrvjstp/image/upload/v1792908206/zinko_poster_ae2jcf.jpg",
+    image: optimizeThumb(
+      "https://res.cloudinary.com/dicrvjstp/image/upload/v1792908206/zinko_poster_ae2jcf.jpg", 1000
+    ),
   },
   {
     id: 6,
     title: "VEAJA",
     subtitle: "Zero Missed Call from Customer",
     tagline: "Ai voice agent that can handle mutiple call at the same time",
-    image:
-      "https://res.cloudinary.com/dicrvjstp/image/upload/v1792908206/veaja_poster_ooxwya.jpg",
+    image: optimizeThumb(
+      "https://res.cloudinary.com/dicrvjstp/image/upload/v1792908206/veaja_poster_ooxwya.jpg", 1000
+    ),
   },
 ];
 
@@ -189,6 +196,8 @@ function SpecimenSlide({ project, index, total, onExpand, isLast }) {
               layoutId={`specimen-img-${project.id}`}
               src={project.image}
               alt={project.title}
+              loading="lazy"
+              decoding="async"
               className="relative z-10 w-full h-full object-contain p-3.5 sm:p-4 will-change-transform drop-shadow-[0_12px_24px_rgba(0,0,0,0.7)]"
             />
 
@@ -357,8 +366,10 @@ export default function DesignWork() {
               repeat: Infinity,
               ease: "easeInOut",
             }}
-            src="https://res.cloudinary.com/dicrvjstp/image/upload/v1792906780/Screenshot_2026-10-25_123928_ehxb36.png"
+            src={optimizeBg("https://res.cloudinary.com/dicrvjstp/image/upload/v1792906780/Screenshot_2026-10-25_123928_ehxb36.png", 1600)}
             alt="Design Work Background"
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover object-right md:object-center will-change-transform opacity-95"
           />
 

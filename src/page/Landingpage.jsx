@@ -1,13 +1,14 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import Hero from "../components/landingpage/Hero";
 import Greeting from "../components/landingpage/Greeting";
 import RecentlyWork from "../components/landingpage/RecentlyWork";
-import DesignWork from "../components/landingpage/DesignWork";
-import AllProject from "../components/landingpage/AllProject";
-import CinematicBanner from "../components/landingpage/CinematicBanner";
-import EduJourney from "../components/landingpage/EduJourney";
-import Buildme from "../components/landingpage/Buildme";
-import Model2D from "../components/landingpage/Model2D";
+
+// Code-split below-the-fold heavy sections for instant initial page render
+const DesignWork = lazy(() => import("../components/landingpage/DesignWork"));
+const AllProject = lazy(() => import("../components/landingpage/AllProject"));
+const CinematicBanner = lazy(() => import("../components/landingpage/CinematicBanner"));
+const EduJourney = lazy(() => import("../components/landingpage/EduJourney"));
+const Achievement = lazy(() => import("../components/landingpage/Achievement"));
 
 export default function LandingPage() {
   return (
@@ -15,12 +16,13 @@ export default function LandingPage() {
       <Hero />
       <Greeting />
       <RecentlyWork />
-      <DesignWork />
-      <AllProject />
-      <CinematicBanner />
-      <EduJourney />
-      <Buildme />
-      <Model2D />
+      <Suspense fallback={<div className="w-full h-96 bg-black" />}>
+        <DesignWork />
+        <AllProject />
+        <CinematicBanner />
+        <EduJourney />
+        <Achievement />
+      </Suspense>
     </div>
   );
 }
