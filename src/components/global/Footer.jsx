@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
 import Magnetic from "./Magnetic";
-import resumePDF from "../../fileCV/Red Bora CV (2).pdf";
+import resumePDF from "../../fileCV/Red_Bora_Resume.pdf";
 import { optimizeBg } from "../../utils/cloudinary";
 
 export default function Footer() {
