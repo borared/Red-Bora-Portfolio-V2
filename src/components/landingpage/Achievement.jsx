@@ -27,9 +27,9 @@ const comicPanels = [
     id: "top-left",
     title: "STAGE PODIUM",
     label: "AWARD / 01",
-    image: optimizeThumb("https://res.cloudinary.com/dicrvjstp/image/upload/v1793349516/awarding_yaa2ro.jpg", 800),
-    objectPos: "object-top",
-    zoom: "scale-[1.3] origin-top-left",
+    image: optimizeThumb("https://res.cloudinary.com/dicrvjstp/image/upload/v1793358993/photo_2026-10-30_18-13-32_jed5bx.jpg", 800),
+    objectPos: "object-center",
+    zoom: "scale-100",
     skew: "clip-panel-tl",
     borderClasses: "border-b-4 border-r-2 border-black"
   },
@@ -37,9 +37,9 @@ const comicPanels = [
     id: "top-center",
     title: "TROPHY & HANDSHAKE",
     label: "AWARD / 02",
-    image: optimizeThumb("https://res.cloudinary.com/dicrvjstp/image/upload/v1793349516/awarding_yaa2ro.jpg", 800),
+    image: optimizeThumb("https://res.cloudinary.com/dicrvjstp/image/upload/v1793359027/photo_2026-10-30_18-13-28_n7azd9.jpg", 800),
     objectPos: "object-center",
-    zoom: "scale-[1.45] origin-center",
+    zoom: "scale-100",
     skew: "clip-panel-tc",
     borderClasses: "border-b-4 border-x-2 border-black"
   },
@@ -47,9 +47,9 @@ const comicPanels = [
     id: "top-right",
     title: "STAGE SPOTLIGHT",
     label: "AWARD / 03",
-    image: optimizeThumb("https://res.cloudinary.com/dicrvjstp/image/upload/v1793349516/awarding_yaa2ro.jpg", 800),
-    objectPos: "object-right-top",
-    zoom: "scale-[1.35] origin-top-right",
+    image: optimizeThumb("https://res.cloudinary.com/dicrvjstp/image/upload/v1793358993/photo_2026-10-30_18-13-48_zn8soe.jpg", 800),
+    objectPos: "object-center",
+    zoom: "scale-100",
     skew: "clip-panel-tr",
     borderClasses: "border-b-4 border-l-2 border-black"
   },
@@ -61,16 +61,16 @@ const comicPanels = [
     label: "CEREMONY / MAIN",
     image: optimizeThumb("https://res.cloudinary.com/dicrvjstp/image/upload/v1793349681/photo_2026-10-30_15-39-54_rqxn5z.jpg", 1000),
     objectPos: "object-center",
-    zoom: "scale-[1.1] origin-center",
+    zoom: "scale-[1.05] origin-center",
     borderClasses: "border-y-4 border-r-2 border-black"
   },
   {
     id: "mid-right",
     title: "CERTIFICATE & CADT TROPHY",
     label: "MEDAL CLOSEUP",
-    image: optimizeThumb("https://res.cloudinary.com/dicrvjstp/image/upload/v1793349681/photo_2026-10-30_15-39-54_rqxn5z.jpg", 800),
-    objectPos: "object-[72%_35%]",
-    zoom: "scale-[1.85] origin-[70%_35%]",
+    image: optimizeThumb("https://res.cloudinary.com/dicrvjstp/image/upload/v1793358992/photo_2026-10-30_18-13-34_pbor39.jpg", 800),
+    objectPos: "object-center",
+    zoom: "scale-100",
     borderClasses: "border-y-4 border-l-2 border-black"
   },
 
@@ -97,18 +97,18 @@ const comicPanels = [
     id: "bot-mid",
     title: "ENGINEERING LEAD",
     label: "RECOGNITION",
-    image: optimizeThumb("https://res.cloudinary.com/dicrvjstp/image/upload/v1793349681/photo_2026-10-30_15-39-54_rqxn5z.jpg", 800),
+    image: optimizeThumb("https://res.cloudinary.com/dicrvjstp/image/upload/v1793358993/photo_2026-10-30_18-13-32_jed5bx.jpg", 800),
     objectPos: "object-[38%_38%]",
-    zoom: "scale-[2.1] origin-[38%_35%]",
+    zoom: "scale-[1.8] origin-[38%_35%]",
     borderClasses: "border-t-4 border-x-2 border-black"
   },
   {
     id: "bot-right",
     title: "HONORARY WINNERS",
     label: "TOP 3 BATCH III",
-    image: optimizeThumb("https://res.cloudinary.com/dicrvjstp/image/upload/v1793349681/photo_2026-10-30_15-39-54_rqxn5z.jpg", 800),
+    image: optimizeThumb("https://res.cloudinary.com/dicrvjstp/image/upload/v1793358992/photo_2026-10-30_18-13-34_pbor39.jpg", 800),
     objectPos: "object-right-center",
-    zoom: "scale-[1.25] origin-right",
+    zoom: "scale-[1.1] origin-right",
     borderClasses: "border-t-4 border-l-2 border-black"
   }
 ];
