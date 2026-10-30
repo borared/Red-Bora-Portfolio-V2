@@ -1,13 +1,15 @@
 import React, { useRef, useEffect } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 export default function Hero() {
+  const heroRef = useRef(null);
   const trackRef = useRef(null);
   const groupRef = useRef(null);
   const xPosRef = useRef(0);
   const animDirectionRef = useRef(-1); // -1: moving left, 1: moving right
   const lastScrollY = useRef(0);
 
-  // Scroll direction detection
+  // Scroll direction detection for horizontal marquee
   useEffect(() => {
     const handleScroll = () => {
       const currentY = window.scrollY;
@@ -74,18 +76,50 @@ export default function Hero() {
     };
   }, []);
 
+  // Parallax scroll tracking for Hero
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+
+  // Layered parallax transformations
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
+  const heroOverlayOpacity = useTransform(scrollYProgress, [0, 0.7, 1], [0, 0.35, 0.7]);
+  const marqueeY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const marqueeOpacity = useTransform(scrollYProgress, [0, 0.7, 1], [1, 0.8, 0.1]);
+  const badgeY = useTransform(scrollYProgress, [0, 1], ["0%", "-35%"]);
+  const badgeOpacity = useTransform(scrollYProgress, [0, 0.65, 1], [1, 0.7, 0]);
+  const scrollIndicatorOpacity = useTransform(scrollYProgress, [0, 0.25], [1, 0]);
+  const scrollIndicatorY = useTransform(scrollYProgress, [0, 0.25], [0, 24]);
+
   return (
     <>
       {/* Hero container */}
-      <div
-        className="relative overflow-hidden flex justify-center items-center w-full min-h-screen bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage:
-            "url('https://res.cloudinary.com/dicrvjstp/image/upload/v1792849691/IMG_20261024_201426_403_wg5m6c.jpg')",
-        }}
+      <section
+        ref={heroRef}
+        className="relative overflow-hidden flex justify-center items-center w-full min-h-screen z-0"
       >
-        {/* Scrolling background text - seamless infinite marquee */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 flex items-center mt-[430px]">
+        {/* Parallax Background Layer - Zoomed out to OG framing */}
+        <motion.div
+          style={{
+            y: bgY,
+            backgroundImage:
+              "url('https://res.cloudinary.com/dicrvjstp/image/upload/v1792849691/IMG_20261024_201426_403_wg5m6c.jpg')",
+          }}
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat will-change-transform pointer-events-none"
+        />
+
+        {/* Ambient darkening / depth vignette on scroll towards Greeting */}
+        <motion.div
+          style={{ opacity: heroOverlayOpacity }}
+          className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/20 to-black/80 pointer-events-none z-[1]"
+        />
+
+        {/* Scrolling background text - seamless infinite marquee with vertical parallax */}
+        <motion.div
+          style={{ y: marqueeY, opacity: marqueeOpacity }}
+          className="absolute inset-0 overflow-hidden pointer-events-none z-[2] flex items-center mt-[430px]"
+        >
           <div
             ref={trackRef}
             className="flex w-max whitespace-nowrap will-change-transform"
@@ -96,19 +130,19 @@ export default function Hero() {
                 className="text-9xl font-black italic text-black px-6"
                 style={{ fontFamily: '"Stretch Pro", sans-serif' }}
               >
-                FOOUNDER OF ZINKO
+                FOUNDER OF ZINKO
               </span>
               <span
                 className="text-9xl font-black italic text-black px-6"
                 style={{ fontFamily: '"Stretch Pro", sans-serif' }}
               >
-                FOOUNDER OF ZINKO
+                FOUNDER OF ZINKO
               </span>
               <span
                 className="text-9xl font-black italic text-black px-6"
                 style={{ fontFamily: '"Stretch Pro", sans-serif' }}
               >
-                FOOUNDER OF ZINKO
+                FOUNDER OF ZINKO
               </span>
             </div>
 
@@ -118,26 +152,29 @@ export default function Hero() {
                 className="text-9xl font-black italic text-black px-6"
                 style={{ fontFamily: '"Stretch Pro", sans-serif' }}
               >
-                FOOUNDER OF ZINKO
+                FOUNDER OF ZINKO
               </span>
               <span
                 className="text-9xl font-black italic text-black px-6"
                 style={{ fontFamily: '"Stretch Pro", sans-serif' }}
               >
-                FOOUNDER OF ZINKO
+                FOUNDER OF ZINKO
               </span>
               <span
                 className="text-9xl font-black italic text-black px-6"
                 style={{ fontFamily: '"Stretch Pro", sans-serif' }}
               >
-                FOOUNDER OF ZINKO
+                FOUNDER OF ZINKO
               </span>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Software Engineer Technical Badge at bottom-left */}
-        <div className="absolute left-6 sm:left-10 md:left-16 bottom-6 sm:bottom-10 md:bottom-14 z-20 pointer-events-none select-none">
+        {/* Software Engineer Technical Badge at bottom-left with parallax */}
+        <motion.div
+          style={{ y: badgeY, opacity: badgeOpacity }}
+          className="absolute left-6 sm:left-10 md:left-16 bottom-6 sm:bottom-10 md:bottom-14 z-20 pointer-events-none select-none"
+        >
           <div className="relative w-[155px] h-[255px] flex flex-col">
             {/* SVG Custom Notched Outline Frame with perfectly aligned tab and label */}
             <svg
@@ -259,8 +296,28 @@ export default function Hero() {
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </motion.div>
+
+        {/* Sharp Industrial Scroll Indicator (Zero Circles) */}
+        <motion.div
+          style={{ opacity: scrollIndicatorOpacity, y: scrollIndicatorY }}
+          className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-1.5 pointer-events-none select-none"
+        >
+          <span
+            className="text-[9px] font-mono tracking-[0.3em] uppercase text-white/75 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
+            style={{ fontFamily: '"Space Mono", monospace' }}
+          >
+            [ SCROLL // ↓ ]
+          </span>
+          <div className="w-9 h-[2px] bg-white/20 relative overflow-hidden">
+            <motion.div
+              animate={{ x: ["-100%", "100%"] }}
+              transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+              className="w-1/2 h-full bg-[#ea580c] shadow-[0_0_8px_#ea580c]"
+            />
+          </div>
+        </motion.div>
+      </section>
     </>
   );
 }

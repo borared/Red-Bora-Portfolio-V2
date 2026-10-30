@@ -1,36 +1,17 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Volume2, VolumeX } from "lucide-react";
 import Magnetic from "../global/Magnetic";
 
 const collaborators = [
-  { id: 1, name: "Red Bora", github: "https://github.com/borared", image: "https://github.com/borared.png", desktopPos: { x: 50, y: -75 }, mobilePos: { x: 60, y: -90 } },
-  { id: 2, name: "Sophat Panhaseth", github: "https://github.com/Panha-SeTh", image: "https://res.cloudinary.com/dicrvjstp/image/upload/v1775926232/photo_2026-04-11_23-50-17_vmo271.jpg", desktopPos: { x: 75, y: -25 }, mobilePos: { x: 60, y: -30 } },
-  { id: 3, name: "Sot Noreaksattya", github: "https://github.com/Lilsyaz45", image: "https://lilsyaz45.github.io/my-portfolio/image.jpg", desktopPos: { x: 75, y: 30 }, mobilePos: { x: 60, y: 30 } },
-  { id: 4, name: "Tep Kheng Meng Khim", github: "https://github.com/Mengkhim11", image: "https://res.cloudinary.com/dicrvjstp/image/upload/v1775925357/photo_2026-04-11_23-35-08_b5u1h1.jpg", desktopPos: { x: 50, y: 80 }, mobilePos: { x: 60, y: 90 } },
+  { id: 1, name: "Red Bora", role: "Product & Frontend Lead", github: "https://github.com/borared", image: "https://github.com/borared.png", desktopPos: { x: 50, y: -75 }, mobilePos: { x: 60, y: -90 } },
+  { id: 2, name: "Sophat Panhaseth", role: "Backend Architecture", github: "https://github.com/Panha-SeTh", image: "https://res.cloudinary.com/dicrvjstp/image/upload/v1775926232/photo_2026-04-11_23-50-17_vmo271.jpg", desktopPos: { x: 75, y: -25 }, mobilePos: { x: 60, y: -30 } },
+  { id: 3, name: "Sot Noreaksattya", role: "Frontend & Game UI", github: "https://github.com/Lilsyaz45", image: "https://lilsyaz45.github.io/my-portfolio/image.jpg", desktopPos: { x: 75, y: 30 }, mobilePos: { x: 60, y: 30 } },
+  { id: 4, name: "Tep Kheng Meng Khim", role: "UI/UX & Testing", github: "https://github.com/Mengkhim11", image: "https://res.cloudinary.com/dicrvjstp/image/upload/v1775925357/photo_2026-04-11_23-35-08_b5u1h1.jpg", desktopPos: { x: 50, y: 80 }, mobilePos: { x: 60, y: 90 } },
 ];
 
 /**
  * Dynamic Recently Works Configuration
- *
- * Each item produces a full 100vh main div with its own background.
- *
- * Configurable fields:
- * - id: Unique string identifier
- * - header: Section title (e.g. "RECENTLY WORK", or leave empty "" to hide)
- * - title: Project name (Stretch Pro stretches double letters like "AA")
- * - titleFont: CSS font family (e.g. '"Stretch Pro", sans-serif', '"Audiowide", cursive')
- * - titleColor: Hex color (e.g. "#a3ff05", "#38bdf8", "#ef4444")
- * - subtitle: Tagline / Role (e.g. "Contribute as a Frontend Dev")
- * - description: Project summary
- * - demoUrl: Link to live demo
- * - bgType: "monitor-terminal" (3D room/console with monitor screen) | "media-showcase" (cinematic backdrop + right-side image)
- * - bgImage: Background image URL (fills the 100vh div)
- * - videoUrl: Video URL (fitted to monitor screen when bgType is "monitor-terminal")
- * - screenImage: Image URL (displayed inside monitor screen if no video)
- * - mediaImage: Showcase image (when bgType is "media-showcase")
- * - align: "left" (text on left, monitor on right) | "right" (text on right, monitor on left)
- * - screenCoords: Coordinates of the monitor screen within the background image { iw, ih, left, top, width, height }
- * - collaborators: Array of team members
  */
 export const recentlyWorks = [
   {
@@ -39,10 +20,10 @@ export const recentlyWorks = [
     title: "VEAJAA",
     titleFont: '"Stretch Pro", sans-serif',
     titleColor: "#a3ff05",
-    subtitle: "Contribute as a Frontend Dev",
+    subtitle: "Frontend Engineering Contributor",
     description:
-      "Veaja is a AI voice agent that answers, qualifies, books, or dispatches around the clock, then shows exactly what happened and who owns the next step.",
-    demoUrl: "https://naek-watch.vercel.app/",
+      "Veaja is an AI voice agent that answers, qualifies, books, and dispatches around the clock with zero latency, logging actions and dispatching immediate next steps.",
+    demoUrl: "https://red-bora-portfolio.vercel.app/",
     bgType: "monitor-terminal",
     bgImage:
       "https://res.cloudinary.com/dicrvjstp/image/upload/v1792865613/v2_bg3_sizfev.jpg",
@@ -57,9 +38,9 @@ export const recentlyWorks = [
     title: "Zinko",
     titleFont: '"Permanent Marker", sans-serif',
     titleColor: "#0537efff",
-    subtitle: "As a Product Owner (Founder)",
+    subtitle: "Product Owner & Founder",
     description:
-      "Zinko is gamified quiz platform that feel like real game competition, with team VS team and build more strategy, engagement, motivation between a group of friend, teacher, family.",
+      "Zinko is a gamified live quiz platform designed like a competitive esports arena, featuring real-time team battles, tactical powers, and deep social engagement.",
     demoUrl: "https://zinko.games/",
     bgType: "monitor-terminal",
     bgImage:
@@ -76,6 +57,8 @@ export const recentlyWorks = [
 function WorkSlide({ work, index, total, isMobile }) {
   const [showCollaborators, setShowCollaborators] = useState(false);
   const [hoveredCollab, setHoveredCollab] = useState(null);
+  const [isMuted, setIsMuted] = useState(true);
+  const videoRef = useRef(null);
   const containerRef = useRef(null);
   const [screenPos, setScreenPos] = useState(null);
 
@@ -167,9 +150,10 @@ function WorkSlide({ work, index, total, isMobile }) {
           >
             {work.videoUrl ? (
               <video
+                ref={videoRef}
                 src={work.videoUrl}
                 autoPlay
-                muted
+                muted={isMuted}
                 loop
                 playsInline
                 className="w-full h-full object-cover"
@@ -181,8 +165,51 @@ function WorkSlide({ work, index, total, isMobile }) {
                 className="w-full h-full object-cover object-top"
               />
             ) : null}
+            {/* Retro CRT Scanlines & Screen Glow */}
+            <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.32)_50%)] bg-[length:100%_4px] opacity-35 z-10" />
+            {/* Cyber Live Terminal Status Tag */}
+            <div className="absolute top-2.5 left-2.5 z-20 flex items-center gap-1.5 px-2.5 py-0.5 bg-black/80 border border-white/20 backdrop-blur-sm pointer-events-none">
+              <span
+                className="text-[8.5px] font-mono tracking-widest text-[#a3ff05] uppercase font-black"
+                style={{ fontFamily: '"Space Mono", monospace' }}
+              >
+                [REC // LIVE FEED 2050]
+              </span>
+            </div>
+
+            {/* Tactile CRT Video Audio Toggle */}
+            {work.videoUrl && (
+              <button
+                type="button"
+                onClick={() => {
+                  setIsMuted((prev) => {
+                    const next = !prev;
+                    if (videoRef.current) {
+                      videoRef.current.muted = next;
+                    }
+                    return next;
+                  });
+                }}
+                className="absolute top-2.5 right-2.5 z-30 flex items-center gap-1.5 px-2 py-0.5 bg-black/85 hover:bg-black border border-white/25 hover:border-[#ea580c] text-white text-[9px] font-mono tracking-wider rounded backdrop-blur-md transition-all cursor-pointer pointer-events-auto shadow-md select-none group"
+                style={{ fontFamily: '"Space Mono", monospace' }}
+                title={isMuted ? "Click to unmute video audio" : "Click to mute video audio"}
+              >
+                {isMuted ? (
+                  <>
+                    <VolumeX className="w-3 h-3 text-neutral-400 group-hover:text-white" />
+                    <span className="text-neutral-300 group-hover:text-white">AUDIO: OFF</span>
+                  </>
+                ) : (
+                  <>
+                    <Volume2 className="w-3 h-3 text-[#ea580c] animate-pulse" />
+                    <span className="text-[#ea580c] font-bold">AUDIO: LIVE</span>
+                  </>
+                )}
+              </button>
+            )}
+
             {/* Subtle retro CRT reflection */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-black/20 via-transparent to-white/10 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-black/20 via-transparent to-white/10 pointer-events-none z-10" />
           </div>
         )}
 
@@ -344,7 +371,7 @@ function WorkSlide({ work, index, total, isMobile }) {
                               stiffness: 260,
                               damping: 20,
                             }}
-                            className="absolute w-[44px] h-[44px] -ml-[22px] -mt-[22px] bg-[#d9d9d9] rounded-full flex items-center justify-center hover:bg-[#c9c9c9] transition-colors pointer-events-auto cursor-pointer shadow-sm"
+                            className="absolute w-[44px] h-[44px] -ml-[22px] -mt-[22px] bg-[#d9d9d9] rounded-full flex items-center justify-center hover:bg-[#ea580c] transition-colors pointer-events-auto cursor-pointer shadow-md ring-2 ring-black"
                           >
                             <img
                               src={collab.image}
@@ -358,9 +385,19 @@ function WorkSlide({ work, index, total, isMobile }) {
                                   animate={{ opacity: 1, x: 0, scale: 1 }}
                                   exit={{ opacity: 0, x: -5, scale: 0.95 }}
                                   transition={{ duration: 0.2 }}
-                                  className="absolute left-full ml-3 whitespace-nowrap bg-[#e6e6e6] text-black text-[14px] px-4 py-1.5 rounded-full shadow-sm pointer-events-none"
+                                  className="absolute left-full ml-3 whitespace-nowrap bg-black/95 border border-white/20 text-white px-3.5 py-1.5 rounded-xl shadow-2xl pointer-events-none flex flex-col z-50 backdrop-blur-md"
                                 >
-                                  {collab.name}
+                                  <span className="font-bold text-sm text-white leading-tight">
+                                    {collab.name}
+                                  </span>
+                                  {collab.role && (
+                                    <span
+                                      className="text-[10px] font-mono text-[#ea580c] uppercase tracking-wider font-semibold"
+                                      style={{ fontFamily: '"Space Mono", monospace' }}
+                                    >
+                                      {collab.role}
+                                    </span>
+                                  )}
                                 </motion.div>
                               )}
                             </AnimatePresence>

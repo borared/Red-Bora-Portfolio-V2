@@ -3,18 +3,18 @@ import { motion, useInView } from "framer-motion";
 
 const codeData = [
   { label: "LANGS", items: "JavaScript · Java · C · C++" },
-  { label: "FRONT", items: "React · Vite · Next.js" },
-  { label: "BACK", items: "Node.js" },
-  { label: "DATA", items: "MySQL · PostgreSQL" },
-  { label: "TOOLS", items: "Figma · Photoshop · VSCode · Antigravity · Cursor" },
+  { label: "FRONT", items: "React · Vite · Next.js · TailwindCSS" },
+  { label: "BACK", items: "Node.js · Express · REST APIs" },
+  { label: "DATA", items: "MySQL · PostgreSQL · Supabase · MongoDB" },
+  { label: "TOOLS", items: "Figma · Photoshop · VSCode · Git · Antigravity · Cursor" },
 ];
 
 const cultureData = [
   { label: "WATCH", items: "MARVEL · DC · Anime" },
   { label: "SOUND", items: "The Weeknd · Joji · Timeless" },
   { label: "INSTRUMENT", items: "Guitar" },
-  { label: "WEAR", items: "Vintage" },
-  { label: "CITY", items: "AreySkat · Cambodia" },
+  { label: "WEAR", items: "Vintage & Cyber-Utilitarian" },
+  { label: "CITY", items: "AreySkat · Phnom Penh · Cambodia" },
 ];
 
 export default function SkillAndHobb() {
@@ -73,8 +73,8 @@ export default function SkillAndHobb() {
   return (
     <section 
       ref={containerRef} 
-      className="overflow-hidden bg-white min-h-screen relative flex items-center justify-center py-24 px-6 md:px-12 xl:px-24 overflow-hidden z-10 w-full" 
-      id="skill-and-hobb"
+      className="bg-white text-black min-h-screen relative flex items-center justify-center py-24 sm:py-32 px-6 md:px-12 xl:px-24 overflow-hidden z-10 w-full" 
+      id="about"
     >
       <motion.div 
         className="max-w-[90rem] w-full mx-auto grid grid-cols-1 md:grid-cols-2 relative gap-y-16 md:gap-y-0"
@@ -85,22 +85,22 @@ export default function SkillAndHobb() {
         {/* Vertical Middle Line Divider */}
         <motion.div 
           variants={lineVariants}
-          className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-black origin-top -translate-x-1/2"
+          className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-neutral-300 origin-top -translate-x-1/2"
         />
 
         {/* --- LEFT COLUMN: THE CODE --- */}
         <div className="flex flex-col pr-0 md:pr-16 lg:pr-32">
           
-          <div className="flex flex-col mb-16 space-y-10 lg:space-y-16 relative">
-            <motion.div variants={labelVariants} className="text-[#3163eb] text-xs font-mono uppercase font-bold tracking-[0.2em]" style={{ fontFamily: "'Space Mono', monospace" }}>
-              / WHO AM I / RED BORA
+          <div className="flex flex-col mb-16 space-y-8 lg:space-y-12 relative">
+            <motion.div variants={labelVariants} className="text-[#ea580c] text-xs font-mono uppercase font-bold tracking-[0.25em]" style={{ fontFamily: "'Space Mono', monospace" }}>
+              [//] ABOUT ME // RED BORA
             </motion.div>
             
-            <motion.div variants={labelVariants} className="text-[#3163eb] text-xs font-mono uppercase font-bold tracking-[0.2em]" style={{ fontFamily: "'Space Mono', monospace" }}>
-              THE CODE
+            <motion.div variants={labelVariants} className="text-[#ea580c] text-xs font-mono uppercase font-bold tracking-[0.25em]" style={{ fontFamily: "'Space Mono', monospace" }}>
+              ENGINEERING // THE CODE
             </motion.div>
 
-            <h2 className="text-6xl sm:text-7xl lg:text-[7rem] font-bold text-neutral-900 leading-[0.85] tracking-tighter uppercase font-sans">
+            <h2 className="text-6xl sm:text-7xl lg:text-[7rem] font-bold text-neutral-950 leading-[0.85] tracking-tighter uppercase font-sans">
               <div className="overflow-hidden py-1"><motion.div variants={headerWordVariants}>WHAT</motion.div></div>
               <div className="overflow-hidden py-1"><motion.div variants={headerWordVariants}>I BUILD</motion.div></div>
             </h2>
@@ -108,20 +108,23 @@ export default function SkillAndHobb() {
 
           <div className="flex flex-col w-full relative">
             {codeData.map((item, index) => (
-              <div key={index} className="flex flex-row items-baseline py-5 overflow-hidden relative">
+              <div 
+                key={index} 
+                className="group flex flex-row items-baseline py-5 overflow-hidden relative cursor-default"
+              >
                 {/* Horizontal Line Drawer */}
                 <motion.div 
                   variants={horizontalLineVariants}
-                  className="absolute bottom-0 left-0 w-full h-[1px] bg-neutral-200 origin-left" 
+                  className="absolute bottom-0 left-0 w-full h-[1px] bg-neutral-200 group-hover:bg-[#ea580c] transition-colors origin-left" 
                 />
                 
                 <div className="w-[140px] md:w-[130px] shrink-0 overflow-hidden">
-                  <motion.span variants={rowContentVariants} className="text-[#3163eb] text-xs font-mono font-bold tracking-widest uppercase block" style={{ fontFamily: "'Space Mono', monospace" }}>
+                  <motion.span variants={rowContentVariants} className="text-[#ea580c] text-xs font-mono font-bold tracking-widest uppercase block transition-transform group-hover:translate-x-1" style={{ fontFamily: "'Space Mono', monospace" }}>
                     {item.label}
                   </motion.span>
                 </div>
                 <div className="flex-1 overflow-hidden">
-                  <motion.span variants={rowContentVariants} className="text-neutral-900 text-sm md:text-base font-mono block" style={{ fontFamily: "'Space Mono', monospace" }}>
+                  <motion.span variants={rowContentVariants} className="text-neutral-900 group-hover:text-black font-medium text-sm md:text-base font-mono block transition-colors" style={{ fontFamily: "'Space Mono', monospace" }}>
                     {item.items}
                   </motion.span>
                 </div>
@@ -133,12 +136,12 @@ export default function SkillAndHobb() {
         {/* --- RIGHT COLUMN: THE CULTURE --- */}
         <div className="flex flex-col pl-0 md:pl-16 lg:pl-32">
           
-          <div className="flex flex-col mb-16 space-y-10 lg:space-y-16 relative md:mt-[6.5rem]">
-            <motion.div variants={labelVariants} className="text-[#3163eb] text-xs font-mono uppercase font-bold tracking-[0.2em]" style={{ fontFamily: "'Space Mono', monospace" }}>
-              THE CULTURE
+          <div className="flex flex-col mb-16 space-y-8 lg:space-y-12 relative md:mt-[5.8rem]">
+            <motion.div variants={labelVariants} className="text-[#ea580c] text-xs font-mono uppercase font-bold tracking-[0.25em]" style={{ fontFamily: "'Space Mono', monospace" }}>
+              IDENTITY // THE CULTURE
             </motion.div>
             
-            <h2 className="text-6xl sm:text-7xl lg:text-[7rem] font-bold text-neutral-900 leading-[0.85] tracking-tighter uppercase font-sans">
+            <h2 className="text-6xl sm:text-7xl lg:text-[7rem] font-bold text-neutral-950 leading-[0.85] tracking-tighter uppercase font-sans">
               <div className="overflow-hidden py-1"><motion.div variants={headerWordVariants}>WHAT</motion.div></div>
               <div className="overflow-hidden py-1"><motion.div variants={headerWordVariants}>MOVES ME</motion.div></div>
             </h2>
@@ -146,20 +149,23 @@ export default function SkillAndHobb() {
 
           <div className="flex flex-col w-full relative">
             {cultureData.map((item, index) => (
-              <div key={index} className="flex flex-row items-baseline py-5 overflow-hidden relative">
+              <div 
+                key={index} 
+                className="group flex flex-row items-baseline py-5 overflow-hidden relative cursor-default"
+              >
                 {/* Horizontal Line Drawer */}
                 <motion.div 
                   variants={horizontalLineVariants}
-                  className="absolute bottom-0 left-0 w-full h-[1px] bg-neutral-200 origin-left" 
+                  className="absolute bottom-0 left-0 w-full h-[1px] bg-neutral-200 group-hover:bg-[#ea580c] transition-colors origin-left" 
                 />
                 
                 <div className="w-[140px] md:w-[130px] shrink-0 overflow-hidden">
-                  <motion.span variants={rowContentVariants} className="text-[#3163eb] text-xs font-mono font-bold tracking-widest uppercase block" style={{ fontFamily: "'Space Mono', monospace" }}>
+                  <motion.span variants={rowContentVariants} className="text-[#ea580c] text-xs font-mono font-bold tracking-widest uppercase block transition-transform group-hover:translate-x-1" style={{ fontFamily: "'Space Mono', monospace" }}>
                     {item.label}
                   </motion.span>
                 </div>
                 <div className="flex-1 overflow-hidden">
-                  <motion.span variants={rowContentVariants} className="text-neutral-900 text-sm md:text-base font-mono block" style={{ fontFamily: "'Space Mono', monospace" }}>
+                  <motion.span variants={rowContentVariants} className="text-neutral-900 group-hover:text-black font-medium text-sm md:text-base font-mono block transition-colors" style={{ fontFamily: "'Space Mono', monospace" }}>
                     {item.items}
                   </motion.span>
                 </div>

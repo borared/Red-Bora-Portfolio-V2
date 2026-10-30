@@ -7,7 +7,6 @@ import AllProject from "../components/landingpage/AllProject";
 import CinematicBanner from "../components/landingpage/CinematicBanner";
 import EduJourney from "../components/landingpage/EduJourney";
 import Buildme from "../components/landingpage/Buildme";
-import MoreDetailAbout from "../components/landingpage/MoreDetailAbout";
 import Model2D from "../components/landingpage/Model2D";
 
 export default function LandingPage() {
@@ -21,8 +20,7 @@ export default function LandingPage() {
       <CinematicBanner />
       <EduJourney />
       <Buildme />
-      <MoreDetailAbout />
       <Model2D />
     </div>
-  )
-}
+  );
+}
