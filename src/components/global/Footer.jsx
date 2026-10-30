@@ -2,7 +2,6 @@ import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
 import Magnetic from "./Magnetic";
-import resumePDF from "../../fileCV/Red_Bora_Resume.pdf";
 import { optimizeBg } from "../../utils/cloudinary";
 
 export default function Footer() {
@@ -71,8 +70,10 @@ export default function Footer() {
             </Magnetic>
             <Magnetic>
               <a
-                href={resumePDF}
-                download="Red_Bora_CV.pdf"
+                href="/Red_Bora_Resume.pdf"
+                download="Red_Bora_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="block px-8 py-3.5 bg-black/40 backdrop-blur-md border-2 border-white/60 text-white font-bold rounded-full hover:border-white hover:bg-white/20 transition-all hover:scale-105 active:scale-95 shadow-xl tracking-wider cursor-pointer"
                 style={{ fontFamily: '"Quantico", sans-serif' }}
               >
