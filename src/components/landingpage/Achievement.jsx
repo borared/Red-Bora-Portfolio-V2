@@ -301,10 +301,10 @@ export default function Achievement() {
                   </div>
                 </div>
 
-                {/* ── ROW 3: Horizontal Panoramic Action Strip (like Godzilla beam strip) ── */}
+                {/* ── ROW 3: Horizontal Panoramic Action Strip (Top 3 Podium Award) ── */}
                 <div
                   onClick={() => setModalImage(comicPanels[5].image)}
-                  className="w-full h-24 sm:h-32 md:h-36 relative overflow-hidden bg-neutral-900 group cursor-pointer border-2 border-black rounded-xl sm:rounded-2xl"
+                  className="w-full h-40 sm:h-52 md:h-64 relative overflow-hidden bg-neutral-900 group cursor-pointer border-2 border-black rounded-xl sm:rounded-2xl"
                 >
                   <img
                     src={comicPanels[5].image}
