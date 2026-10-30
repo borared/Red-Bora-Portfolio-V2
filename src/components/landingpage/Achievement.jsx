@@ -106,9 +106,9 @@ const comicPanels = [
     id: "bot-right",
     title: "HONORARY WINNERS",
     label: "TOP 3 BATCH III",
-    image: optimizeThumb("https://res.cloudinary.com/dicrvjstp/image/upload/v1793358992/photo_2026-10-30_18-13-34_pbor39.jpg", 800),
-    objectPos: "object-right-center",
-    zoom: "scale-[1.1] origin-right",
+    image: optimizeThumb("https://res.cloudinary.com/dicrvjstp/image/upload/v1793359256/photo_2026-10-30_18-19-54_y67fgj.jpg", 800),
+    objectPos: "object-center",
+    zoom: "scale-100",
     borderClasses: "border-t-4 border-l-2 border-black"
   }
 ];
